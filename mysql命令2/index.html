@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="生僻单词 distinct  不同的 rollup 汇总 concat 集中 group_by适用条件： – 清屏 system clear – 查询学生的个数 select count(height) from students; 注意点: 聚合函数不会对空值进行统计 一般如果要是指定列名，那么就是主键字段 select count(id) from students; 通用的写法 select">
+<meta name="description" content="生僻单词distinct  不同的 rollup 汇总 concat 集中 group_by适用条件： 命令– 清屏system clear – 查询学生的个数select count(height) from students; 注意点: 聚合函数不会对空值进行统计 一般如果要是指定列名，那么就是主键字段 select count(id) from students; 通用的写法select c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql命令2">
 <meta property="og:url" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/index.html">
 <meta property="og:site_name" content="乔然的博客">
-<meta property="og:description" content="生僻单词 distinct  不同的 rollup 汇总 concat 集中 group_by适用条件： – 清屏 system clear – 查询学生的个数 select count(height) from students; 注意点: 聚合函数不会对空值进行统计 一般如果要是指定列名，那么就是主键字段 select count(id) from students; 通用的写法 select">
+<meta property="og:description" content="生僻单词distinct  不同的 rollup 汇总 concat 集中 group_by适用条件： 命令– 清屏system clear – 查询学生的个数select count(height) from students; 注意点: 聚合函数不会对空值进行统计 一般如果要是指定列名，那么就是主键字段 select count(id) from students; 通用的写法select c">
 <meta property="og:image" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/017.png">
 <meta property="og:image" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/016.png">
 <meta property="og:image" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/015.png">
@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/09.png">
 <meta property="og:image" content="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/010.png">
 <meta property="article:published_time" content="2020-02-04T10:35:02.000Z">
-<meta property="article:modified_time" content="2020-02-04T11:07:46.806Z">
+<meta property="article:modified_time" content="2020-02-04T13:14:02.506Z">
 <meta property="article:author" content="乔然">
 <meta property="article:tag" content="mysql命令">
 <meta name="twitter:card" content="summary">
@@ -329,119 +329,87 @@
       
 
       
-        <p>生僻单词</p>
-<p>distinct  不同的</p>
+        <h3 id="生僻单词"><a href="#生僻单词" class="headerlink" title="生僻单词"></a>生僻单词</h3><p>distinct  不同的</p>
 <p>rollup 汇总</p>
 <p>concat 集中</p>
 <p>group_by适用条件：</p>
-<p>– 清屏</p>
-<p>system clear</p>
-<p>– 查询学生的个数</p>
-<p>select count(height) from students;</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="–-清屏"><a href="#–-清屏" class="headerlink" title="– 清屏"></a>– 清屏</h4><p>system clear</p>
+<h4 id="–-查询学生的个数"><a href="#–-查询学生的个数" class="headerlink" title="– 查询学生的个数"></a>– 查询学生的个数</h4><p>select count(height) from students;</p>
 <p>注意点: 聚合函数不会对空值进行统计</p>
 <p>一般如果要是指定列名，那么就是主键字段</p>
 <p>select count(id) from students;</p>
-<p>通用的写法</p>
-<p>select count(<em>) from students;                                                count(</em>)</p>
-<p>– 查询女生的编号最大值                                            max(id)</p>
-<p>select max(id) from students where gender = ‘女’;</p>
-<p>– 查询未删除的学生最小编号                                        min(id)</p>
-<p>select min(id) from students where is_del = 0;</p>
-<p>– 查询男生的总身高                                            sum(height)</p>
-<p>select sum(height) from students where gender=’男’;</p>
-<p>– 求男生的平均身高</p>
-<p>select sum(height) / count(*) from students where gender=’男’;</p>
+<h5 id="通用的写法"><a href="#通用的写法" class="headerlink" title="通用的写法"></a>通用的写法</h5><p>select count(<em>) from students;                                                count(</em>)</p>
+<h4 id="–-查询女生的编号最大值-max-id"><a href="#–-查询女生的编号最大值-max-id" class="headerlink" title="– 查询女生的编号最大值                                            max(id)"></a>– 查询女生的编号最大值                                            max(id)</h4><p>select max(id) from students where gender = ‘女’;</p>
+<h4 id="–-查询未删除的学生最小编号-min-id"><a href="#–-查询未删除的学生最小编号-min-id" class="headerlink" title="– 查询未删除的学生最小编号                                        min(id)"></a>– 查询未删除的学生最小编号                                        min(id)</h4><p>select min(id) from students where is_del = 0;</p>
+<h4 id="–-查询男生的总身高-sum-height"><a href="#–-查询男生的总身高-sum-height" class="headerlink" title="– 查询男生的总身高                                            sum(height)"></a>– 查询男生的总身高                                            sum(height)</h4><p>select sum(height) from students where gender=’男’;</p>
+<h4 id="–-求男生的平均身高"><a href="#–-求男生的平均身高" class="headerlink" title="– 求男生的平均身高"></a>– 求男生的平均身高</h4><p>select sum(height) / count(*) from students where gender=’男’;</p>
 <p>select avg(height) from students where gender = ‘男’;</p>
 <p>select avg(ifnull(height, 0)) from students where gender = ‘男’;</p>
-<p>注意点: 聚合函数不会对空值进行统计</p>
-<p>ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0</p>
-<p>– 查询性别的种类</p>
-<p>select distinct gender from students;</p>
+<h5 id="注意点-聚合函数不会对空值进行统计"><a href="#注意点-聚合函数不会对空值进行统计" class="headerlink" title="注意点: 聚合函数不会对空值进行统计"></a>注意点: 聚合函数不会对空值进行统计</h5><h5 id="ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0"><a href="#ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0" class="headerlink" title="ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0"></a>ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0</h5><h4 id="–-查询性别的种类"><a href="#–-查询性别的种类" class="headerlink" title="– 查询性别的种类"></a>– 查询性别的种类</h4><p>select distinct gender from students;</p>
 <p>select gender from students group by gender;</p>
-<p>– 根据name和gender字段进行分组, 查看name和gender的分组信息</p>
-<p>select gender,name from students group by gender,name;</p>
+<h4 id="–-根据name和gender字段进行分组-查看name和gender的分组信息"><a href="#–-根据name和gender字段进行分组-查看name和gender的分组信息" class="headerlink" title="– 根据name和gender字段进行分组, 查看name和gender的分组信息"></a>– 根据name和gender字段进行分组, 查看name和gender的分组信息</h4><p>select gender,name from students group by gender,name;</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/017.png" class="">
 
-<p>– 根据gender字段进行分组， 查询每个分组的姓名信息                        group_concat</p>
-<p>select gender,group_concat(name) from students group by gender;</p>
-<p>group_concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割</p>
-<img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/016.png" class="">
+<h4 id="–-根据gender字段进行分组，-查询每个分组的姓名信息-group-concat"><a href="#–-根据gender字段进行分组，-查询每个分组的姓名信息-group-concat" class="headerlink" title="– 根据gender字段进行分组， 查询每个分组的姓名信息                        group_concat"></a>– 根据gender字段进行分组， 查询每个分组的姓名信息                        group_concat</h4><p>select gender,group_concat(name) from students group by gender;</p>
+<h5 id="group-concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割"><a href="#group-concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割" class="headerlink" title="group_concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割"></a>group_concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割</h5><img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/016.png" class="">
 
-<p>– 统计不同性别的平均年龄</p>
-<p>select gender,avg(age) from students group by gender;</p>
+<h4 id="–-统计不同性别的平均年龄"><a href="#–-统计不同性别的平均年龄" class="headerlink" title="– 统计不同性别的平均年龄"></a>– 统计不同性别的平均年龄</h4><p>select gender,avg(age) from students group by gender;</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/015.png" class="">
 
-<p>– 统计不同性别的人的个数</p>
-<p>select gender,count(*) from students group by gender;</p>
+<h4 id="–-统计不同性别的人的个数"><a href="#–-统计不同性别的人的个数" class="headerlink" title="– 统计不同性别的人的个数"></a>– 统计不同性别的人的个数</h4><p>select gender,count(*) from students group by gender;</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/014.png" class="">
 
-<p>– 根据gender字段进行分组，统计分组条数大于2的                                       having</p>
-<p>select gender,count(<em>) from students group by gender having count(</em>) &gt; 2;</p>
-<p>– 对分组数据进行过滤使用having</p>
-<img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/013.png" class="">
+<h4 id="–-根据gender字段进行分组，统计分组条数大于2的-having"><a href="#–-根据gender字段进行分组，统计分组条数大于2的-having" class="headerlink" title="– 根据gender字段进行分组，统计分组条数大于2的                                       having"></a>– 根据gender字段进行分组，统计分组条数大于2的                                       having</h4><p>select gender,count(<em>) from students group by gender having count(</em>) &gt; 2;</p>
+<h4 id="–-对分组数据进行过滤使用having"><a href="#–-对分组数据进行过滤使用having" class="headerlink" title="– 对分组数据进行过滤使用having"></a>– 对分组数据进行过滤使用having</h4><img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/013.png" class="">
 
-<p>– 根据gender字段进行分组，汇总总人数                            with rollup</p>
-<p>select gender,count(*) from students group by gender with rollup;</p>
+<h4 id="–-根据gender字段进行分组，汇总总人数-with-rollup"><a href="#–-根据gender字段进行分组，汇总总人数-with-rollup" class="headerlink" title="– 根据gender字段进行分组，汇总总人数                            with rollup"></a>– 根据gender字段进行分组，汇总总人数                            with rollup</h4><p>select gender,count(*) from students group by gender with rollup;</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/012.png" class="">
 
-<p>– 根据gender字段进行分组，汇总所有人的年龄</p>
-<p>select gender,group_concat(age) from students group by gender with rollup; 汇总</p>
+<h4 id="–-根据gender字段进行分组，汇总所有人的年龄"><a href="#–-根据gender字段进行分组，汇总所有人的年龄" class="headerlink" title="– 根据gender字段进行分组，汇总所有人的年龄"></a>– 根据gender字段进行分组，汇总所有人的年龄</h4><p>select gender,group_concat(age) from students group by gender with rollup; 汇总</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/011.png" class="">
 
-<p>– 使用内连接查询学生表与班级表</p>
-<p>select s.name, c.name from students s inner join classes c on s.c_id = c.id;</p>
+<h4 id="–-使用内连接查询学生表与班级表"><a href="#–-使用内连接查询学生表与班级表" class="headerlink" title="– 使用内连接查询学生表与班级表"></a>– 使用内连接查询学生表与班级表</h4><p>select s.name, c.name from students s inner join classes c on s.c_id = c.id;</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/01.png" class="">
 
-<p>– 使用左连接查询学生表与班级表</p>
-<p>select * from students s left join classes c on s.c_id = c.id;</p>
+<h4 id="–-使用左连接查询学生表与班级表"><a href="#–-使用左连接查询学生表与班级表" class="headerlink" title="– 使用左连接查询学生表与班级表"></a>– 使用左连接查询学生表与班级表</h4><p>select * from students s left join classes c on s.c_id = c.id;</p>
 <p>左连接查询，根据左表查询右表，如果右表数据不存在使用null填充</p>
 <p>left左边是左表，left右边是右表</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/02.png" class="">
 
-<p>– 使用右连接查询学生表与班级表</p>
-<p>select * from students s right join classes c on s.c_id = c.id;</p>
+<h4 id="–-使用右连接查询学生表与班级表"><a href="#–-使用右连接查询学生表与班级表" class="headerlink" title="– 使用右连接查询学生表与班级表"></a>– 使用右连接查询学生表与班级表</h4><p>select * from students s right join classes c on s.c_id = c.id;</p>
 <p>右连接查询，根据右表查询左表，如果左表数据不存在使用null填充</p>
 <p>right左边是左表，right右边是右表</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/03.png" class="">
 
-<p>– 使用自连接查询省份和城市信息</p>
-<p>select c.id, c.title, c.pid, p.title from areas c inner join areas p on c.pid = p.id where p.title = ‘河北省’;</p>
-<p>– 查询大于平均年龄的学生</p>
-<p>select * from students where age &gt; (select avg(age) from students);</p>
+<h4 id="–-使用自连接查询省份和城市信息"><a href="#–-使用自连接查询省份和城市信息" class="headerlink" title="– 使用自连接查询省份和城市信息"></a>– 使用自连接查询省份和城市信息</h4><p>select c.id, c.title, c.pid, p.title from areas c inner join areas p on c.pid = p.id where p.title = ‘河北省’;</p>
+<h4 id="–-查询大于平均年龄的学生"><a href="#–-查询大于平均年龄的学生" class="headerlink" title="– 查询大于平均年龄的学生"></a>– 查询大于平均年龄的学生</h4><p>select * from students where age &gt; (select avg(age) from students);</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/04.png" class="">
 
-<p>– 查询学生在班的所有班级名字</p>
-<p>select * from classes where id in (select c_id from students where c_id is not null);</p>
+<h4 id="–-查询学生在班的所有班级名字"><a href="#–-查询学生在班的所有班级名字" class="headerlink" title="– 查询学生在班的所有班级名字"></a>– 查询学生在班的所有班级名字</h4><p>select * from classes where id in (select c_id from students where c_id is not null);</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/05.png" class="">
 
-<p>– 查找年龄最大,身高最高的学生</p>
-<p> select * from students where age = (select max(age) from students) and height = (select max(height) from students);</p>
+<h4 id="–-查找年龄最大-身高最高的学生"><a href="#–-查找年龄最大-身高最高的学生" class="headerlink" title="– 查找年龄最大,身高最高的学生"></a>– 查找年龄最大,身高最高的学生</h4><p> select * from students where age = (select max(age) from students) and height = (select max(height) from students);</p>
 <p>简写:</p>
 <p>select * from students where (age, height) = (select max(age), max(height) from students);</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/06.png" class="">
 
 <p>子查询是一个完整的查询语句，子查询的执行顺序，先执行子查询然后主查询根据子查询的结果再执行</p>
-<p>– 为学生表的cls_id字段添加外键约束</p>
-<p>alter table students add foreign key(c_id) references classes(id);</p>
+<h4 id="–-为学生表的cls-id字段添加外键约束"><a href="#–-为学生表的cls-id字段添加外键约束" class="headerlink" title="– 为学生表的cls_id字段添加外键约束"></a>– 为学生表的cls_id字段添加外键约束</h4><p>alter table students add foreign key(c_id) references classes(id);</p>
 <p>删除外键约束</p>
 <p>alter table teacher drop foreign key 外键名;</p>
-<p>– 创建学校表</p>
-<p>create table school(</p>
+<h4 id="–-创建学校表"><a href="#–-创建学校表" class="headerlink" title="– 创建学校表"></a>– 创建学校表</h4><p>create table school(</p>
 <p>​     id int unsigned not null primary key auto_increment,</p>
 <p>​     name varchar(30) not null</p>
 <p>);</p>
-<p>– 创建老师表添加学校外键</p>
-<p>create table teacher(</p>
+<h4 id="–-创建老师表添加学校外键"><a href="#–-创建老师表添加学校外键" class="headerlink" title="– 创建老师表添加学校外键"></a>– 创建老师表添加学校外键</h4><p>create table teacher(</p>
 <p>​     id int unsigned not null primary key auto_increment,</p>
 <p>​     name varchar(20) not null,</p>
 <p>​     s_id  int unsigned,</p>
 <p>​     foreign key(s_id) references school(id)</p>
 <p>);</p>
-<p>– 删除外键</p>
-<p>alter table teacher drop foreign key teacher_ibfk_1;</p>
+<h4 id="–-删除外键"><a href="#–-删除外键" class="headerlink" title="– 删除外键"></a>– 删除外键</h4><p>alter table teacher drop foreign key teacher_ibfk_1;</p>
 <p>在索引的分类中，我们可以按照索引的键是否为主键来分为“主索引”和“辅助索引”，使用主键键值建立的索引称为“主索引”，其它的称为“辅助索引”。因此主索引只能有一个，辅助索引可以有很多个</p>
-<p>索引</p>
-<p>索引在MySQL中也叫做“键”，它是一个特殊的文件，它保存着数据表里所有记录的位置信息，更通俗的来说，数据库索引好比是一本书前面的目录，能加快数据库的查询速度。</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>索引在MySQL中也叫做“键”，它是一个特殊的文件，它保存着数据表里所有记录的位置信息，更通俗的来说，数据库索引好比是一本书前面的目录，能加快数据库的查询速度。</p>
 <p>查看表中已有索引:</p>
 <p>show index from 表名;</p>
 <ul>
@@ -466,14 +434,12 @@
 <p>查看sql语句的执行时间</p>
 <img src="https://lifu521.github.io/boke/mysql%E5%91%BD%E4%BB%A42/09.png" class="">
 
-<p>MyISAM——非聚簇索引</p>
-<p>MyISAM存储引擎采用的是非聚簇索引，非聚簇索引的主索引和辅助索引几乎是一样的，只是主索引不允许重复，不允许空值，他们的叶子结点的key都存储指向键值对应的数据的物理地址。</p>
+<h4 id="MyISAM——非聚簇索引"><a href="#MyISAM——非聚簇索引" class="headerlink" title="MyISAM——非聚簇索引"></a>MyISAM——非聚簇索引</h4><p>MyISAM存储引擎采用的是非聚簇索引，非聚簇索引的主索引和辅助索引几乎是一样的，只是主索引不允许重复，不允许空值，他们的叶子结点的key都存储指向键值对应的数据的物理地址。</p>
 <p>非聚簇索引的数据表和索引表是分开存储的。</p>
 <p>非聚簇索引中的数据是根据数据的插入顺序保存。因此非聚簇索引更适合单个数据的查询。插入顺序不受键值影响。</p>
 <p>只有在MyISAM中才能使用FULLTEXT索引。(mysql5.6以后innoDB也支持全文索引)</p>
 <p>*最开始我一直不懂既然非聚簇索引的主索引和辅助索引指向相同的内容，为什么还要辅助索引这个东西呢，后来才明白索引不就是用来查询的吗，用在那些地方呢，不就是WHERE和ORDER BY 语句后面吗，那么如果查询的条件不是主键怎么办呢，这个时候就需要辅助索引了。</p>
-<p>InnoDB——聚簇索引</p>
-<p>聚簇索引的主索引的叶子结点存储的是键值对应的数据本身，辅助索引的叶子结点存储的是键值对应的数据的主键键值。因此主键的值长度越小越好，类型越简单越好。</p>
+<h4 id="InnoDB——聚簇索引"><a href="#InnoDB——聚簇索引" class="headerlink" title="InnoDB——聚簇索引"></a>InnoDB——聚簇索引</h4><p>聚簇索引的主索引的叶子结点存储的是键值对应的数据本身，辅助索引的叶子结点存储的是键值对应的数据的主键键值。因此主键的值长度越小越好，类型越简单越好。</p>
 <p>聚簇索引的数据和主键索引存储在一起。</p>
 <p>聚簇索引的数据是根据主键的顺序保存。因此适合按主键索引的区间查找，可以有更少的磁盘I/O，加快查询速度。但是也是因为这个原因，聚簇索引的插入顺序最好按照主键单调的顺序插入，否则会频繁的引起页分裂，严重影响性能。</p>
 <p>在InnoDB中，如果只需要查找索引的列，就尽量不要加入其它的列，这样会提高查询效率。</p>
@@ -575,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -647,6 +622,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#生僻单词"><span class="nav-number">1.</span> <span class="nav-text">生僻单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">2.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#–-清屏"><span class="nav-number">2.1.</span> <span class="nav-text">– 清屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询学生的个数"><span class="nav-number">2.2.</span> <span class="nav-text">– 查询学生的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通用的写法"><span class="nav-number">2.2.1.</span> <span class="nav-text">通用的写法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询女生的编号最大值-max-id"><span class="nav-number">2.3.</span> <span class="nav-text">– 查询女生的编号最大值                                            max(id)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询未删除的学生最小编号-min-id"><span class="nav-number">2.4.</span> <span class="nav-text">– 查询未删除的学生最小编号                                        min(id)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询男生的总身高-sum-height"><span class="nav-number">2.5.</span> <span class="nav-text">– 查询男生的总身高                                            sum(height)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-求男生的平均身高"><span class="nav-number">2.6.</span> <span class="nav-text">– 求男生的平均身高</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意点-聚合函数不会对空值进行统计"><span class="nav-number">2.6.1.</span> <span class="nav-text">注意点: 聚合函数不会对空值进行统计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0"><span class="nav-number">2.6.2.</span> <span class="nav-text">ifnull函数判断指定的字段是否是空值，如果是空值使用默认值0</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询性别的种类"><span class="nav-number">2.7.</span> <span class="nav-text">– 查询性别的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-根据name和gender字段进行分组-查看name和gender的分组信息"><span class="nav-number">2.8.</span> <span class="nav-text">– 根据name和gender字段进行分组, 查看name和gender的分组信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-根据gender字段进行分组，-查询每个分组的姓名信息-group-concat"><span class="nav-number">2.9.</span> <span class="nav-text">– 根据gender字段进行分组， 查询每个分组的姓名信息                        group_concat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#group-concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割"><span class="nav-number">2.9.1.</span> <span class="nav-text">group_concat：统计每个分组指定字段的信息集合，信息之间使用逗号进行分割</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-统计不同性别的平均年龄"><span class="nav-number">2.10.</span> <span class="nav-text">– 统计不同性别的平均年龄</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-统计不同性别的人的个数"><span class="nav-number">2.11.</span> <span class="nav-text">– 统计不同性别的人的个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-根据gender字段进行分组，统计分组条数大于2的-having"><span class="nav-number">2.12.</span> <span class="nav-text">– 根据gender字段进行分组，统计分组条数大于2的                                       having</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-对分组数据进行过滤使用having"><span class="nav-number">2.13.</span> <span class="nav-text">– 对分组数据进行过滤使用having</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-根据gender字段进行分组，汇总总人数-with-rollup"><span class="nav-number">2.14.</span> <span class="nav-text">– 根据gender字段进行分组，汇总总人数                            with rollup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-根据gender字段进行分组，汇总所有人的年龄"><span class="nav-number">2.15.</span> <span class="nav-text">– 根据gender字段进行分组，汇总所有人的年龄</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-使用内连接查询学生表与班级表"><span class="nav-number">2.16.</span> <span class="nav-text">– 使用内连接查询学生表与班级表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-使用左连接查询学生表与班级表"><span class="nav-number">2.17.</span> <span class="nav-text">– 使用左连接查询学生表与班级表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-使用右连接查询学生表与班级表"><span class="nav-number">2.18.</span> <span class="nav-text">– 使用右连接查询学生表与班级表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-使用自连接查询省份和城市信息"><span class="nav-number">2.19.</span> <span class="nav-text">– 使用自连接查询省份和城市信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询大于平均年龄的学生"><span class="nav-number">2.20.</span> <span class="nav-text">– 查询大于平均年龄的学生</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查询学生在班的所有班级名字"><span class="nav-number">2.21.</span> <span class="nav-text">– 查询学生在班的所有班级名字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-查找年龄最大-身高最高的学生"><span class="nav-number">2.22.</span> <span class="nav-text">– 查找年龄最大,身高最高的学生</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-为学生表的cls-id字段添加外键约束"><span class="nav-number">2.23.</span> <span class="nav-text">– 为学生表的cls_id字段添加外键约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-创建学校表"><span class="nav-number">2.24.</span> <span class="nav-text">– 创建学校表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-创建老师表添加学校外键"><span class="nav-number">2.25.</span> <span class="nav-text">– 创建老师表添加学校外键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–-删除外键"><span class="nav-number">2.26.</span> <span class="nav-text">– 删除外键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MyISAM——非聚簇索引"><span class="nav-number">3.1.</span> <span class="nav-text">MyISAM——非聚簇索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InnoDB——聚簇索引"><span class="nav-number">3.2.</span> <span class="nav-text">InnoDB——聚簇索引</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -669,16 +660,6 @@
   
 </div>
 
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
