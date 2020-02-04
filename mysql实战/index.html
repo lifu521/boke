@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1在桌面创建test文件夹，表示是工作项目  Desktop&#x2F;test&#x2F; 2创建本地仓库 进入到test，并创建本地仓库.git  新创建的本地仓库.git是个空仓库 cd Desktop&#x2F;test&#x2F;  git init   3配置个人信息  git config user.name ‘张三’  git config user.email ‘zhangsan@163.com’ 4在项目文件t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql实战">
+<meta property="og:url" content="./mysql%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="乔然的博客">
+<meta property="og:description" content="1在桌面创建test文件夹，表示是工作项目  Desktop&#x2F;test&#x2F; 2创建本地仓库 进入到test，并创建本地仓库.git  新创建的本地仓库.git是个空仓库 cd Desktop&#x2F;test&#x2F;  git init   3配置个人信息  git config user.name ‘张三’  git config user.email ‘zhangsan@163.com’ 4在项目文件t">
+<meta property="og:image" content="g:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5Cce8fc939205045809673e065d603e205%5C002.png">
+<meta property="og:image" content="g:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5C5992be34568444f6a6110cb8d81365a8%5Cgit%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="g:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5C7cc238d8fe09498dbef58ddb538b1015%5Cgit%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png">
+<meta property="article:published_time" content="2020-02-04T07:20:57.000Z">
+<meta property="article:modified_time" content="2020-02-04T07:24:24.674Z">
+<meta property="article:author" content="乔然">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="g:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5Cce8fc939205045809673e065d603e205%5C002.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="./mysql实战/"/>
+
+
+
+
+
+  <title>mysql实战 | 乔然的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">乔然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿你出走半生，归来依是少年</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="./mysql%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乔然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql实战</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T15:20:57+08:00">
+                2020-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="G:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5Cce8fc939205045809673e065d603e205%5C002.png" alt="img"></p>
+<p><img src="G:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5C5992be34568444f6a6110cb8d81365a8%5Cgit%E5%91%BD%E4%BB%A4.png" alt="img"></p>
+<p><img src="G:%5Cyoudaoyunwenjian%5CweixinobU7VjjL994SpsAOT9wx8LAX8Byw%5C7cc238d8fe09498dbef58ddb538b1015%5Cgit%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png" alt="img"></p>
+<h2 id="1在桌面创建test文件夹，表示是工作项目"><a href="#1在桌面创建test文件夹，表示是工作项目" class="headerlink" title="1在桌面创建test文件夹，表示是工作项目"></a>1在桌面创建test文件夹，表示是工作项目</h2><p>  Desktop/test/</p>
+<h2 id="2创建本地仓库"><a href="#2创建本地仓库" class="headerlink" title="2创建本地仓库"></a>2创建本地仓库</h2><ul>
+<li><p>进入到test，并创建本地仓库.git</p>
+</li>
+<li><p>新创建的本地仓库.git是个空仓库</p>
+<p>cd Desktop/test/  git init</p>
+</li>
+</ul>
+<h2 id="3配置个人信息"><a href="#3配置个人信息" class="headerlink" title="3配置个人信息"></a>3配置个人信息</h2><p>  git config user.name ‘张三’  git config user.email ‘zhangsan@163.com’</p>
+<p>4在项目文件test里面创建login.py文件，用于版本控制演示</p>
+<p>5查看文件状态</p>
+<ul>
+<li>红色表示新建文件或者新修改的文件,都在工作区.</li>
+<li>绿色表示文件在暂存区</li>
+<li>新建的login.py文件在工作区，需要添加到暂存区并提交到仓库区</li>
+</ul>
+<p>git status</p>
+<p>6将工作区文件添加到暂存区</p>
+<p>  # 添加项目中所有文件  git add .  或者  # 添加指定文件  git add login.py</p>
+<p>7将暂存区文件提交到仓库区</p>
+<ul>
+<li>commit会生成一条版本记录</li>
+<li>-m后面是版本描述信息</li>
+</ul>
+<p>git commit -m ‘版本描述’</p>
+<p>8接下来就可以在login.py文件中编辑代码</p>
+<ul>
+<li><p>代码编辑完成后即可进行add和commit操作</p>
+</li>
+<li><p>提示：添加和提交合并命令</p>
+<p>git commit -am “版本描述”</p>
+</li>
+</ul>
+<p>9查看历史版本</p>
+<p>  git log  或者  git reflog</p>
+<p>10回退版本</p>
+<p>方案一：</p>
+<ul>
+<li><ul>
+<li>HEAD表示当前最新版本</li>
+<li>HEAD^表示当前最新版本的前一个版本</li>
+<li>HEAD^^表示当前最新版本的前两个版本，以此类推…</li>
+<li>HEAD~1表示当前最新版本的前一个版本</li>
+<li>HEAD~10表示当前最新版本的前10个版本，以此类推…</li>
+</ul>
+</li>
+</ul>
+<p>git reset –hard HEAD^</p>
+<p>方案二：当版本非常多时可选择的方案</p>
+<ul>
+<li><p>通过每个版本的版本号回退到指定版本</p>
+<p>git reset –hard 版本号</p>
+</li>
+</ul>
+<p>11撤销修改</p>
+<ul>
+<li>只能撤销工作区、暂存区的代码,不能撤销仓库区的代码</li>
+<li>撤销仓库区的代码就相当于回退版本操作</li>
+</ul>
+<ul>
+<li><ul>
+<li>撤销工作区代码</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li><ul>
+<li>新加代码num3 = 30，不add到暂存区，保留在工作区</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>git checkout 文件名</p>
+<p>撤销暂存区代码</p>
+<ul>
+<li>新加代码num3 = 30，并add到暂存区</li>
+</ul>
+<p># 第一步：将暂存区代码撤销到工作区git reset HEAD  文件名# 第二步：撤销工作区代码git checkout 文件名</p>
+<p>12对比版本</p>
+<ul>
+<li>对比版本库与工作区</li>
+</ul>
+<ul>
+<li><ul>
+<li>新加代码num3 = 30，不add到暂存区，保留在工作区</li>
+</ul>
+</li>
+</ul>
+<p>git diff HEAD – login.py</p>
+<p>对比版本库</p>
+<ul>
+<li>新加代码num3 = 30，并add到暂存区</li>
+</ul>
+<p>git diff HEAD HEAD^ – login.py</p>
+<p>13删除文件：删除文件分为确定删除和误删</p>
+<ul>
+<li>在项目中新建test.py文件，并添加和提交到仓库</li>
+</ul>
+<ul>
+<li><ul>
+<li>确定删除处理：</li>
+</ul>
+<p># 删除文件  rm 文件名  # git确定删除文件，对比添加文件git add   git rm 文件名  # 删除后记录删除操作版本  git commit -m ‘删除描述’</p>
+</li>
+</ul>
+<p>误删处理：撤销修改即可</p>
+<p>  # 删除文件  rm 文件名  # git撤销修改  git checkout – 文件名</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bbbb/" rel="next" title="bbbbbbbbbbb">
+                <i class="fa fa-chevron-left"></i> bbbbbbbbbbb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">乔然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/lf521" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1在桌面创建test文件夹，表示是工作项目"><span class="nav-number">1.</span> <span class="nav-text">1在桌面创建test文件夹，表示是工作项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2创建本地仓库"><span class="nav-number">2.</span> <span class="nav-text">2创建本地仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3配置个人信息"><span class="nav-number">3.</span> <span class="nav-text">3配置个人信息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔然</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
