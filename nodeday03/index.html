@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="https://lifu521.github.io/boke/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="https://lifu521.github.io/boke/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lifu521.github.io/boke/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lifu521.github.io/boke/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lifu521.github.io/boke/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://lifu521.github.io/boke/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="node," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###01 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&#x2F;*    Buffer的基本操作    Buffer本质上就是字节数组    1、构造方法（类）    2、静态方法    3、实例方法*&#x2F;&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodeday03">
+<meta property="og:url" content="https://lifu521.github.io/boke/nodeday03/index.html">
+<meta property="og:site_name" content="乔然的博客">
+<meta property="og:description" content="###01 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&#x2F;*    Buffer的基本操作    Buffer本质上就是字节数组    1、构造方法（类）    2、静态方法    3、实例方法*&#x2F;&amp;#x2">
+<meta property="article:published_time" content="2020-02-05T08:43:34.000Z">
+<meta property="article:modified_time" content="2020-02-05T08:44:28.408Z">
+<meta property="article:author" content="乔然">
+<meta property="article:tag" content="node">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'https://lifu521.github.io/boke/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lifu521.github.io/boke/nodeday03/"/>
+
+
+
+
+
+  <title>nodeday03 | 乔然的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="https://lifu521.github.io/boke/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">乔然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿你出走半生，归来依是少年</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="https://lifu521.github.io/boke/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://lifu521.github.io/boke/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lifu521.github.io/bokehttps://lifu521.github.io/boke/nodeday03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乔然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://lifu521.github.io/boke/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nodeday03</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-05T16:43:34+08:00">
+                2020-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="https://lifu521.github.io/boke/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###01</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    Buffer的基本操作</span><br><span class="line">    Buffer本质上就是字节数组</span><br><span class="line">    1、构造方法（类）</span><br><span class="line">    2、静态方法</span><br><span class="line">    3、实例方法</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 实例化buf对象</span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; new Buffer(5);</span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.alloc(5);</span><br><span class="line">&#x2F;&#x2F; console.log(buf);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from(&#39;hello&#39;,&#39;utf8&#39;);</span><br><span class="line">&#x2F;&#x2F; console.log(buf);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);</span><br><span class="line">&#x2F;&#x2F; console.log(buf.toString());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; -------------------------------------------</span><br><span class="line">&#x2F;&#x2F; 静态方法</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.isEncoding(&#39;utf8&#39;));</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.isEncoding(&#39;gbk&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from(&#39;hello&#39;);</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.isBuffer(buf));</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.isBuffer(&#123;&#125;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from(&#39;中国&#39;,&#39;ascii&#39;);</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.byteLength(buf));</span><br><span class="line">&#x2F;&#x2F; console.log(buf.toString());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf1 &#x3D; Buffer.alloc(3);</span><br><span class="line">&#x2F;&#x2F; let buf2 &#x3D; Buffer.alloc(5);</span><br><span class="line">&#x2F;&#x2F; let buf3 &#x3D; Buffer.concat([buf1,buf2]);</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.byteLength(buf3));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf1 &#x3D; Buffer.from(&#39;tom&#39;);</span><br><span class="line">&#x2F;&#x2F; let buf2 &#x3D; Buffer.from(&#39;jerry&#39;);</span><br><span class="line">&#x2F;&#x2F; let buf3 &#x3D; Buffer.concat([buf1,buf2]);</span><br><span class="line">&#x2F;&#x2F; console.log(Buffer.byteLength(buf3));</span><br><span class="line">&#x2F;&#x2F; console.log(buf3.toString());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ---------------------------------------</span><br><span class="line">&#x2F;&#x2F; 实例方法</span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.alloc(5);</span><br><span class="line">&#x2F;&#x2F; buf.write(&#39;hello&#39;,2,2);</span><br><span class="line">&#x2F;&#x2F; console.log(buf);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from(&#39;hello&#39;);</span><br><span class="line">&#x2F;&#x2F; let buf1 &#x3D; buf.slice(2,3);</span><br><span class="line">&#x2F;&#x2F; console.log(buf &#x3D;&#x3D;&#x3D; buf1);&#x2F;&#x2F;false</span><br><span class="line">&#x2F;&#x2F; console.log(buf1.toString());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; toJSON方法不需要显式调用，当JSON.stringify方法调用的时候会自动调用toJSON方法</span><br><span class="line">&#x2F;&#x2F; const buf &#x3D; Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);</span><br><span class="line">const buf &#x3D; Buffer.from(&#39;hello&#39;);</span><br><span class="line">const json &#x3D; JSON.stringify(buf);</span><br><span class="line">console.log(json);</span><br></pre></td></tr></table></figure>
+<p>###02</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    路径操作</span><br><span class="line">*&#x2F;</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取路径的最后一部分</span><br><span class="line">&#x2F;&#x2F; console.log(path.basename(&#39;&#x2F;foo&#x2F;bar&#x2F;baz&#x2F;asdf&#x2F;quux.html&#39;));</span><br><span class="line">&#x2F;&#x2F; console.log(path.basename(&#39;&#x2F;foo&#x2F;bar&#x2F;baz&#x2F;asdf&#x2F;quux.html&#39;, &#39;.html&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取路径</span><br><span class="line">&#x2F;&#x2F; console.log(__dirname);</span><br><span class="line">&#x2F;&#x2F; console.log(path.dirname(&#39;&#x2F;abc&#x2F;qqq&#x2F;www&#x2F;abc&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取扩展名称</span><br><span class="line">&#x2F;&#x2F; console.log(path.extname(&#39;index.html&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 路径的格式化处理</span><br><span class="line">&#x2F;&#x2F; path.format() obj-&gt;string</span><br><span class="line">&#x2F;&#x2F; path.parse()  string-&gt;obj</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let obj &#x3D; path.parse(__filename);</span><br><span class="line">&#x2F;&#x2F; console.log(obj.base);</span><br><span class="line">&#x2F;*</span><br><span class="line">&#123; root: &#39;E:\\&#39;, 文件的跟路径</span><br><span class="line">  dir: &#39;E:\\node\\day02\\02-code&#39;,文件的全路径</span><br><span class="line">  base: &#39;02.js&#39;,文件的名称</span><br><span class="line">  ext: &#39;.js&#39;,扩展名</span><br><span class="line">  name: &#39;02&#39; 文件名称</span><br><span class="line">&#125;</span><br><span class="line">*&#x2F;</span><br><span class="line">&#x2F;&#x2F; let objpath &#x3D; &#123;</span><br><span class="line">&#x2F;&#x2F;     root : &#39;d:\\&#39;,</span><br><span class="line">&#x2F;&#x2F;     dir : &#39;d:\\qqq\\www&#39;,</span><br><span class="line">&#x2F;&#x2F;     base : &#39;abc.txt&#39;,</span><br><span class="line">&#x2F;&#x2F;     ext : &#39;.txt&#39;,</span><br><span class="line">&#x2F;&#x2F;     name : &#39;abc&#39;</span><br><span class="line">&#x2F;&#x2F; &#125;;</span><br><span class="line">&#x2F;&#x2F; let strpath &#x3D; path.format(objpath);</span><br><span class="line">&#x2F;&#x2F; console.log(strpath);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 判断是否为绝对路径</span><br><span class="line">&#x2F;&#x2F; console.log(path.isAbsolute(&#39;&#x2F;foo&#x2F;bar&#39;));</span><br><span class="line">&#x2F;&#x2F; console.log(path.isAbsolute(&#39;C:&#x2F;foo&#x2F;..&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 拼接路径（..表示上层路径；.表示当前路径）,在连接路径的时候会格式化路径</span><br><span class="line">&#x2F;&#x2F; console.log(path.join(&#39;&#x2F;foo&#39;, &#39;bar&#39;, &#39;baz&#x2F;asdf&#39;, &#39;quux&#39;, &#39;..&#x2F;..&#x2F;&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 规范化路径</span><br><span class="line">&#x2F;&#x2F; console.log(path.normalize(&#39;&#x2F;foo&#x2F;bar&#x2F;&#x2F;baz&#x2F;asdf&#x2F;quux&#x2F;..&#39;));</span><br><span class="line">&#x2F;&#x2F; console.log(path.normalize(&#39;C:\\temp\\\\foo\\bar\\..\\&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 计算相对路径</span><br><span class="line">&#x2F;&#x2F; console.log(path.relative(&#39;&#x2F;data&#x2F;orandea&#x2F;test&#x2F;aaa&#39;, &#39;&#x2F;data&#x2F;orandea&#x2F;impl&#x2F;bbb&#39;));</span><br><span class="line">&#x2F;&#x2F; console.log(path.relative(&#39;C:\\orandea\\test\\aaa&#39;, &#39;C:\\orandea\\impl\\bbb&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 解析路径</span><br><span class="line">&#x2F;&#x2F; console.log(path.resolve(&#39;wwwroot&#39;, &#39;static_files&#x2F;png&#x2F;&#39;, &#39;..&#x2F;gif&#x2F;image.gif&#39;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 两个特殊属性</span><br><span class="line">console.log(path.delimiter);&#x2F;&#x2F;表示路径分隔符（windows是\ Linux是&#x2F;）</span><br><span class="line">console.log(path.sep);&#x2F;&#x2F;环境变量分隔符(windows中使用; linux中使用:)</span><br></pre></td></tr></table></figure>
+<p>###03</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    异步I&#x2F;O input&#x2F;output</span><br><span class="line">    1、文件操作</span><br><span class="line">    2、网络操作</span><br><span class="line"></span><br><span class="line">    在浏览器中也存在异步操作：</span><br><span class="line">    1、定时任务</span><br><span class="line">    2、事件处理</span><br><span class="line">    3、Ajax回调处理</span><br><span class="line"></span><br><span class="line">    js的运行时单线程的</span><br><span class="line">    引入事件队列机制</span><br><span class="line"></span><br><span class="line">    Node.js中的事件模型与浏览器中的事件模型类似</span><br><span class="line">    单线程+事件队列</span><br><span class="line"></span><br><span class="line">    Node.js中异步执行的任务：</span><br><span class="line">    1、文件I&#x2F;O</span><br><span class="line">    2、网络I&#x2F;O</span><br><span class="line"></span><br><span class="line">    基于回调函数的编码风格</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<p>###04</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    文件操作-查看文件状态</span><br><span class="line">*&#x2F;</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">console.log(1);</span><br><span class="line">fs.stat(&#39;.&#x2F;abc&#39;,(err,stat) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 一般回调函数的第一个参数是错误对象，如果err为null,表示没有错误，否则表示报错了</span><br><span class="line">    if(err) return;</span><br><span class="line">    &#x2F;&#x2F; if(stat.isFile())&#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(&#39;文件&#39;);</span><br><span class="line">    &#x2F;&#x2F; &#125;else if(stat.isDirectory())&#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(&#39;目录&#39;);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(stat);</span><br><span class="line">    &#x2F;*</span><br><span class="line">    atime 文件访问时间</span><br><span class="line">    ctime 文件的状态信息发生变化的时间（比如文件的权限）</span><br><span class="line">    mtime 文件数据发生变化的时间</span><br><span class="line">    birthtime 文件创建的时间</span><br><span class="line">    *&#x2F;</span><br><span class="line">    console.log(2);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(3);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 同步操作</span><br><span class="line">&#x2F;&#x2F; console.log(1);</span><br><span class="line">&#x2F;&#x2F; let ret &#x3D; fs.statSync(&#39;.&#x2F;data.txt&#39;);</span><br><span class="line">&#x2F;&#x2F; console.log(ret);</span><br><span class="line">&#x2F;&#x2F; console.log(2);</span><br></pre></td></tr></table></figure>
+<p>###05</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    读文件操作</span><br><span class="line">*&#x2F;</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line"></span><br><span class="line">let strpath &#x3D; path.join(__dirname,&#39;data.txt&#39;);</span><br><span class="line">&#x2F;&#x2F; fs.readFile(strpath,(err,data)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err) return;</span><br><span class="line">&#x2F;&#x2F;     console.log(data.toString());</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 如果有第二个参数并且是编码，那么回调函数获取到的数据就是字符串</span><br><span class="line">&#x2F;&#x2F; 如果没有第二个参数，那么得到的就是Buffer实例对象</span><br><span class="line">&#x2F;&#x2F; fs.readFile(strpath,&#39;utf8&#39;,(err,data)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err) return;</span><br><span class="line">&#x2F;&#x2F;     &#x2F;&#x2F; console.log(data.toString());</span><br><span class="line">&#x2F;&#x2F;     console.log(data);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 同步操作</span><br><span class="line">let ret &#x3D; fs.readFileSync(strpath,&#39;utf8&#39;);</span><br><span class="line">console.log(ret);</span><br></pre></td></tr></table></figure>
+<p>###06</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    写文件操作</span><br><span class="line">*&#x2F;</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line"></span><br><span class="line">let strpath &#x3D; path.join(__dirname,&#39;data.txt&#39;);</span><br><span class="line">&#x2F;&#x2F; fs.writeFile(strpath,&#39;hello nihao&#39;,&#39;utf8&#39;,(err)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(!err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(&#39;文件写入成功&#39;);</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let buf &#x3D; Buffer.from(&#39;hi&#39;);</span><br><span class="line">&#x2F;&#x2F; fs.writeFile(strpath,buf,&#39;utf8&#39;,(err)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(!err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(&#39;文件写入成功&#39;);</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 同步操作</span><br><span class="line">fs.writeFileSync(strpath,&#39;tom and jerry&#39;);</span><br></pre></td></tr></table></figure>
+<p>###07</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    大文件操作（流式操作）</span><br><span class="line">    fs.createReadStream(path[, options])</span><br><span class="line">    fs.createWriteStream(path[, options])</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line"></span><br><span class="line">let spath &#x3D; path.join(__dirname,&#39;..&#x2F;03-source&#39;,&#39;file.zip&#39;);</span><br><span class="line">let dpath &#x3D; path.join(&#39;C:\\Users\\www\\Desktop&#39;,&#39;file.zip&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let readStream &#x3D; fs.createReadStream(spath);</span><br><span class="line">&#x2F;&#x2F; let writeStream &#x3D; fs.createWriteStream(dpath);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 基于事件的处理方式</span><br><span class="line">&#x2F;&#x2F; $(&#39;input[type&#x3D;button]&#39;).on(&#39;click&#39;,function()&#123;</span><br><span class="line">&#x2F;&#x2F;     console.log(&#39;hello&#39;);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line">&#x2F;&#x2F; let num &#x3D; 1;</span><br><span class="line">&#x2F;&#x2F; readStream.on(&#39;data&#39;,(chunk)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     num++;</span><br><span class="line">&#x2F;&#x2F;     writeStream.write(chunk);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; readStream.on(&#39;end&#39;,()&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     console.log(&#39;文件处理完成&#39;+num);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line">&#x2F;&#x2F; -----------------------------------</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; pipe的作用直接把输入流和输出流</span><br><span class="line">&#x2F;&#x2F; readStream.pipe(writeStream);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ----------------------------------</span><br><span class="line">fs.createReadStream(spath).pipe(fs.createWriteStream(dpath));</span><br></pre></td></tr></table></figure>
+<p>###08</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    目录操作</span><br><span class="line">    1、创建目录</span><br><span class="line">    fs.mkdir(path[, mode], callback)</span><br><span class="line">    fs.mkdirSync(path[, mode])</span><br><span class="line">    2、读取目录</span><br><span class="line">    fs.readdir(path[, options], callback)</span><br><span class="line">    fs.readdirSync(path[, options])</span><br><span class="line">    3、删除目录</span><br><span class="line">    fs.rmdir(path, callback)</span><br><span class="line">    fs.rmdirSync(path)</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">&#x2F;&#x2F; 创建目录</span><br><span class="line">&#x2F;&#x2F; fs.mkdir(path.join(__dirname,&#39;abc&#39;),(err)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     console.log(err);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; fs.mkdirSync(path.join(__dirname,&#39;hello&#39;));</span><br><span class="line">&#x2F;&#x2F; --------------------------------</span><br><span class="line">&#x2F;&#x2F; 读取目录</span><br><span class="line">&#x2F;&#x2F; fs.readdir(__dirname,(err,files)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     files.forEach((item,index)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;         fs.stat(path.join(__dirname,item),(err,stat)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;             if(stat.isFile())&#123;</span><br><span class="line">&#x2F;&#x2F;                 console.log(item,&#39;文件&#39;);</span><br><span class="line">&#x2F;&#x2F;             &#125;else if(stat.isDirectory())&#123;</span><br><span class="line">&#x2F;&#x2F;                 console.log(item,&#39;目录&#39;);</span><br><span class="line">&#x2F;&#x2F;             &#125;</span><br><span class="line">&#x2F;&#x2F;         &#125;);</span><br><span class="line">&#x2F;&#x2F;     &#125;);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let files &#x3D; fs.readdirSync(__dirname);</span><br><span class="line">&#x2F;&#x2F; files.forEach((item,index)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     fs.stat(path.join(__dirname,item),(err,stat)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;         if(stat.isFile())&#123;</span><br><span class="line">&#x2F;&#x2F;             console.log(item,&#39;文件&#39;);</span><br><span class="line">&#x2F;&#x2F;         &#125;else if(stat.isDirectory())&#123;</span><br><span class="line">&#x2F;&#x2F;             console.log(item,&#39;目录&#39;);</span><br><span class="line">&#x2F;&#x2F;         &#125;</span><br><span class="line">&#x2F;&#x2F;     &#125;);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line">&#x2F;&#x2F; ------------------------------</span><br><span class="line">&#x2F;&#x2F; 删除目录</span><br><span class="line">&#x2F;&#x2F; fs.rmdir(path.join(__dirname,&#39;abc&#39;),(err)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     console.log(err);</span><br><span class="line">&#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">fs.rmdirSync(path.join(__dirname,&#39;qqq&#39;));</span><br></pre></td></tr></table></figure>
+<p>###09</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    文件操作案例（初始化目录结构）</span><br><span class="line">*&#x2F;</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line"></span><br><span class="line">let root &#x3D; &#39;C:\\Users\\www\\Desktop&#39;;</span><br><span class="line">let fileContent &#x3D; &#96;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;welcome to this&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line">&#96;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化数据</span><br><span class="line">let initData &#x3D; &#123;</span><br><span class="line">    projectName : &#39;mydemo&#39;,</span><br><span class="line">    data : [&#123;</span><br><span class="line">        name : &#39;img&#39;,</span><br><span class="line">        type : &#39;dir&#39;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name : &#39;css&#39;,</span><br><span class="line">        type : &#39;dir&#39;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name : &#39;js&#39;,</span><br><span class="line">        type : &#39;dir&#39;</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name : &#39;index.html&#39;,</span><br><span class="line">        type : &#39;file&#39;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建项目跟路径</span><br><span class="line">fs.mkdir(path.join(root,initData.projectName),(err)&#x3D;&gt;&#123;</span><br><span class="line">    if(err) return;</span><br><span class="line">    &#x2F;&#x2F; 创建子目录和文件</span><br><span class="line">    initData.data.forEach((item)&#x3D;&gt;&#123;</span><br><span class="line">        if(item.type &#x3D;&#x3D; &#39;dir&#39;)&#123;</span><br><span class="line">            &#x2F;&#x2F; 创建子目录</span><br><span class="line">            fs.mkdirSync(path.join(root,initData.projectName,item.name));</span><br><span class="line">        &#125;else if(item.type &#x3D;&#x3D; &#39;file&#39;)&#123;</span><br><span class="line">            &#x2F;&#x2F; 创建文件并写入内容</span><br><span class="line">            fs.writeFileSync(path.join(root,initData.projectName,item.name),fileContent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>###10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    全局安装 -g：</span><br><span class="line">    全局安装的包位于Node.js环境的node_modules目录下，全局安装的包一般用于命令行工具</span><br><span class="line">    </span><br><span class="line">    本地安装：</span><br><span class="line">    本地安装的包在当前目录下的node_modules里面，本地安装的包一般用于实际的开发工作</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">    npm常用的命令：</span><br><span class="line">    1、安装包（如果没有指定版本号，那么安装最新版本）</span><br><span class="line">    npm install -g 包名称 (全局安装)</span><br><span class="line">    npm install 包名称 (本地安装)</span><br><span class="line"></span><br><span class="line">    2、安装包的时候可以指定版本</span><br><span class="line">    npm install -g 包名称@版本号</span><br><span class="line"></span><br><span class="line">    3、卸载包</span><br><span class="line">    npm uninstall -g 包名</span><br><span class="line"></span><br><span class="line">    4、更新包（更新到最新版本）</span><br><span class="line">    npm update -g 包名</span><br><span class="line">    </span><br><span class="line">    开发环境（平时开发使用的环境）</span><br><span class="line">    生产环境（项目部署上线之后的服务器环境）</span><br><span class="line">    --save 向生产环境添加依赖 dependencies</span><br><span class="line">    --save-dev 向开发环境添加依赖 DevDependencies </span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<p>###11</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    yarn工具基本使用</span><br><span class="line"></span><br><span class="line">    安装yarn工具：npm install -g yarn</span><br><span class="line"></span><br><span class="line">    1、初始化包</span><br><span class="line">    npm init</span><br><span class="line">    yarn init</span><br><span class="line">    2、安装包</span><br><span class="line">    npm install xxx --save</span><br><span class="line">    yarn add xxx</span><br><span class="line">    3、移除包</span><br><span class="line">    npm uninstall xxx</span><br><span class="line">    yarn remove xxx</span><br><span class="line">    4、更新包</span><br><span class="line">    npm update xxx</span><br><span class="line">    yarn upgrade xxx</span><br><span class="line">    5、安装开发依赖的包</span><br><span class="line">    npm install xxx --save-dev</span><br><span class="line">    yarn add xxx --dev</span><br><span class="line">    6、全局安装</span><br><span class="line">    npm install -g xxx</span><br><span class="line">    yarn global add xxx</span><br><span class="line">    7、设置下载镜像的地址</span><br><span class="line">    npm config set registry url</span><br><span class="line">    yarn config set registry url</span><br><span class="line">    8、安装所有依赖</span><br><span class="line">    npm install</span><br><span class="line">    yarn install</span><br><span class="line">    9、执行包</span><br><span class="line">    npm run</span><br><span class="line">    yarn run</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="https://lifu521.github.io/boke/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/nodees6/" rel="next" title="nodees6">
+                <i class="fa fa-chevron-left"></i> nodees6
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/nodeday05/" rel="prev" title="nodeday05">
+                nodeday05 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">乔然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="https://lifu521.github.io/boke/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/lf521" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔然</span>
+
+  
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="https://lifu521.github.io/boke/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
