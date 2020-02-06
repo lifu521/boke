@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="https://lifu521.github.io/boke/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="https://lifu521.github.io/boke/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lifu521.github.io/boke/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lifu521.github.io/boke/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lifu521.github.io/boke/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://lifu521.github.io/boke/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js-webapi," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="01-window.html1234567891011121314151617181920212223242526272829303132333435&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;  &lt;titl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-webapi04">
+<meta property="og:url" content="https://lifu521.github.io/boke/js-webapi04/index.html">
+<meta property="og:site_name" content="乔然的博客">
+<meta property="og:description" content="01-window.html1234567891011121314151617181920212223242526272829303132333435&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;  &lt;titl">
+<meta property="article:published_time" content="2020-02-06T04:43:21.000Z">
+<meta property="article:modified_time" content="2020-02-06T04:50:44.786Z">
+<meta property="article:author" content="乔然">
+<meta property="article:tag" content="js-webapi">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'https://lifu521.github.io/boke/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lifu521.github.io/boke/js-webapi04/"/>
+
+
+
+
+
+  <title>js-webapi04 | 乔然的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="https://lifu521.github.io/boke/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">乔然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿你出走半生，归来依是少年</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="https://lifu521.github.io/boke/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://lifu521.github.io/boke/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lifu521.github.io/bokehttps://lifu521.github.io/boke/js-webapi04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乔然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://lifu521.github.io/boke/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js-webapi04</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T12:43:21+08:00">
+                2020-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="https://lifu521.github.io/boke/categories/js-webapi/" itemprop="url" rel="index">
+                    <span itemprop="name">js-webapi</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="01-window-html"><a href="#01-window-html" class="headerlink" title="01-window.html"></a>01-window.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 当我们是用window的成员的时候，window可以省略</span><br><span class="line">    &#x2F;&#x2F; window.document</span><br><span class="line">    &#x2F;&#x2F; window.alert(&#39;hello&#39;);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 定义的全局变量都属于window ，都是window对象的属性</span><br><span class="line">    &#x2F;&#x2F; var age &#x3D; 18;</span><br><span class="line">    &#x2F;&#x2F; console.log(window.age);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; console.dir(window);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; name 是window的属性，是字符串类型</span><br><span class="line">    var name &#x3D; 123;</span><br><span class="line">    console.log(name);</span><br><span class="line"></span><br><span class="line">    window.console.log(&#39;hello&#39;);</span><br><span class="line">    &#x2F;&#x2F; top 是window的属性，只能获取不能赋值</span><br><span class="line">    var top &#x3D; &#39;top&#39;;</span><br><span class="line">    console.log(top);</span><br><span class="line"></span><br><span class="line">    var age &#x3D; 18;</span><br><span class="line">    console.log(age);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="02-对话框-html"><a href="#02-对话框-html" class="headerlink" title="02-对话框.html"></a>02-对话框.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;alert&quot; id&#x3D;&quot;btn1&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;prompt&quot; id&#x3D;&quot;btn2&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;confirm&quot; id&#x3D;&quot;btn3&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    var btn1 &#x3D; document.getElementById(&#39;btn1&#39;);</span><br><span class="line">    var btn2 &#x3D; document.getElementById(&#39;btn2&#39;);</span><br><span class="line">    var btn3 &#x3D; document.getElementById(&#39;btn3&#39;);</span><br><span class="line"></span><br><span class="line">    btn1.onclick &#x3D; function () &#123;</span><br><span class="line">      alert(&#39;hello world&#39;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    btn2.onclick &#x3D; function () &#123;</span><br><span class="line">      &#x2F;&#x2F; 弹出提示，让用户输入内容</span><br><span class="line">      var userName &#x3D; prompt(&#39;请输入姓名&#39;, &#39;张三&#39;);</span><br><span class="line">      console.log(userName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    btn3.onclick &#x3D; function () &#123;</span><br><span class="line">      var isSure &#x3D; confirm(&#39;是否要删除数据？&#39;);</span><br><span class="line">      console.log(isSure);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="03-页面加载事件-html"><a href="#03-页面加载事件-html" class="headerlink" title="03-页面加载事件.html"></a>03-页面加载事件.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; BOM   onload  页面加载完成之后执行  </span><br><span class="line">    &#x2F;&#x2F; 页面加载完成 页面上所有的元素创建完毕，并且引用的外部资源下载完毕（js，css，图片）</span><br><span class="line">    &#x2F;&#x2F; window.onload &#x3D; function () &#123;</span><br><span class="line">    onload &#x3D; function () &#123;</span><br><span class="line">      var box &#x3D; document.getElementById(&#39;box&#39;);</span><br><span class="line">      console.dir(box);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; window.onunload &#x3D; function () &#123;</span><br><span class="line">    &#x2F;&#x2F; 页面卸载的时候执行</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    onunload &#x3D; function () &#123;</span><br><span class="line">      &#x2F;&#x2F; 在onunload中所有的对话框都无法使用 window 对象被冻结</span><br><span class="line">      &#x2F;&#x2F; Blocked alert(&#39;欢迎下次再来&#39;) during unload.</span><br><span class="line">      &#x2F;&#x2F; alert(&#39;欢迎下次再来&#39;);</span><br><span class="line">      console.log(&#39;bye bye&#39;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; f5 刷新页面  </span><br><span class="line">    &#x2F;&#x2F; 1 卸载页面</span><br><span class="line">    &#x2F;&#x2F; 2 重新加载页面</span><br><span class="line">    </span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;box&quot;&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;img src&#x3D;&quot;&quot; alt&#x3D;&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 当页面上的元素创建完毕就会执行</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="04-setTimeout-html"><a href="#04-setTimeout-html" class="headerlink" title="04-setTimeout.html"></a>04-setTimeout.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;开始&quot; id&#x3D;&quot;btn1&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;取消&quot; id&#x3D;&quot;btn2&quot;&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; setTimeout()   定时炸弹   隔一段时间执行，并且只会执行一次</span><br><span class="line">    &#x2F;&#x2F; setInterval()  闹钟       隔一段时间执行，并且会重复执行</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 定时器的标示</span><br><span class="line">    var timerId;</span><br><span class="line">    var btn1 &#x3D; document.getElementById(&#39;btn1&#39;);</span><br><span class="line">    btn1.onclick &#x3D; function () &#123;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; window.setTimeout()</span><br><span class="line">      &#x2F;&#x2F; 两个参数</span><br><span class="line">      &#x2F;&#x2F; 第一个参数 要执行的函数</span><br><span class="line">      &#x2F;&#x2F; 第二个参数 间隔的时间 单位是毫秒</span><br><span class="line">      &#x2F;&#x2F; 返回值  是一个整数，是定时器的标示</span><br><span class="line">      &#x2F;&#x2F; timerId &#x3D; setTimeout(function () &#123;</span><br><span class="line">      &#x2F;&#x2F;   console.log(&#39;爆炸了&#39;);</span><br><span class="line">      &#x2F;&#x2F; &#125;, 3000);</span><br><span class="line">      &#x2F;&#x2F; </span><br><span class="line">      timerId &#x3D; setTimeout(fn, 3000);</span><br><span class="line">      function fn() &#123;</span><br><span class="line">        console.log(&#39;爆炸了&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var btn2 &#x3D; document.getElementById(&#39;btn2&#39;);</span><br><span class="line">    btn2.onclick &#x3D; function () &#123;</span><br><span class="line">      &#x2F;&#x2F; 取消定时器的执行</span><br><span class="line">      clearTimeout(timerId);</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="05-删除提示-html"><a href="#05-删除提示-html" class="headerlink" title="05-删除提示.html"></a>05-删除提示.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      margin: 0;</span><br><span class="line">      padding: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    #tip &#123;</span><br><span class="line">      width: 150px;</span><br><span class="line">      height: 30px;</span><br><span class="line">      background-color: lightgray;</span><br><span class="line">      opacity: 0.5;</span><br><span class="line">      margin:200px auto;</span><br><span class="line">      padding-top: 5px;</span><br><span class="line">      text-align: center;</span><br><span class="line">      color: red;</span><br><span class="line">      display: none;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    onload &#x3D; function () &#123;</span><br><span class="line">      &#x2F;&#x2F; 当页面的所有元素创建完成, 等待外部文件下载完毕才会执行</span><br><span class="line">      var btn &#x3D; document.getElementById(&#39;btn&#39;);</span><br><span class="line">      btn.onclick &#x3D; function () &#123;</span><br><span class="line">        &#x2F;&#x2F; 删除操作</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 显示删除成功的tip</span><br><span class="line">        var tip &#x3D; document.getElementById(&#39;tip&#39;);</span><br><span class="line">        tip.style.display &#x3D; &#39;block&#39;;</span><br><span class="line">        &#x2F;&#x2F; 隔3秒钟之后让tip隐藏</span><br><span class="line">        setTimeout(function () &#123;</span><br><span class="line">          tip.style.display &#x3D; &#39;none&#39;;</span><br><span class="line">        &#125;, 3000);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; id&#x3D;&quot;btn&quot; value&#x3D;&quot;删除&quot;&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;tip&quot;&gt;删除成功&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 当页面的所有元素创建完成之后执行，不需要等待外部文件下载完毕</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="06-setInterval-html"><a href="#06-setInterval-html" class="headerlink" title="06-setInterval.html"></a>06-setInterval.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;开始&quot; id&#x3D;&quot;btn1&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;取消&quot; id&#x3D;&quot;btn2&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; setInterval()  闹钟  隔一段时间执行，会重复执行</span><br><span class="line">    </span><br><span class="line">    var btn1 &#x3D; document.getElementById(&#39;btn1&#39;);</span><br><span class="line">    var timerId; &#x2F;&#x2F; 定时器的标示</span><br><span class="line">    btn1.onclick &#x3D; function() &#123;</span><br><span class="line">      &#x2F;&#x2F; 第一次执行也要先等3秒钟</span><br><span class="line">      timerId &#x3D; setInterval(function () &#123;</span><br><span class="line">        console.log(&#39;早上8点了&#39;);</span><br><span class="line">      &#125;, 3000);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var btn2 &#x3D; document.getElementById(&#39;btn2&#39;);</span><br><span class="line">    btn2.onclick &#x3D; function () &#123;</span><br><span class="line">      clearInterval(timerId);</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="07-倒计时-html"><a href="#07-倒计时-html" class="headerlink" title="07-倒计时.html"></a>07-倒计时.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">    .time-item &#123;</span><br><span class="line">      width: 430px;</span><br><span class="line">      height: 45px;</span><br><span class="line">      margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .time-item strong &#123;</span><br><span class="line">        background: orange;</span><br><span class="line">        color: #fff;</span><br><span class="line">        line-height: 49px;</span><br><span class="line">        font-size: 36px;</span><br><span class="line">        font-family: Arial;</span><br><span class="line">        padding: 0 10px;</span><br><span class="line">        margin-right: 10px;</span><br><span class="line">        border-radius: 5px;</span><br><span class="line">        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .time-item &gt; span &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        line-height: 49px;</span><br><span class="line">        color: orange;</span><br><span class="line">        font-size: 32px;</span><br><span class="line">        margin: 0 10px;</span><br><span class="line">        font-family: Arial, Helvetica, sans-serif;</span><br><span class="line">    &#125;</span><br><span class="line">    .title &#123;</span><br><span class="line">      width: 260px;</span><br><span class="line">      height: 50px;</span><br><span class="line">      margin:200px auto 50px auto;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1 class&#x3D;&quot;title&quot;&gt;距离光棍节，还有&lt;&#x2F;h1&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;div class&#x3D;&quot;time-item&quot;&gt;</span><br><span class="line">    &lt;span&gt;&lt;span id&#x3D;&quot;day&quot;&gt;00&lt;&#x2F;span&gt;天&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;strong&gt;&lt;span id&#x3D;&quot;hour&quot;&gt;00&lt;&#x2F;span&gt;时&lt;&#x2F;strong&gt;</span><br><span class="line">    &lt;strong&gt;&lt;span id&#x3D;&quot;minute&quot;&gt;00&lt;&#x2F;span&gt;分&lt;&#x2F;strong&gt;</span><br><span class="line">    &lt;strong&gt;&lt;span id&#x3D;&quot;second&quot;&gt;00&lt;&#x2F;span&gt;秒&lt;&#x2F;strong&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;script src&#x3D;&quot;common.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 目标时间</span><br><span class="line">    var endDate &#x3D; new Date(&#39;2017-11-11 0:0:0&#39;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 获取span</span><br><span class="line">    var spanDay &#x3D; my$(&#39;day&#39;);</span><br><span class="line">    var spanHour &#x3D; my$(&#39;hour&#39;);</span><br><span class="line">    var spanMinute &#x3D; my$(&#39;minute&#39;);</span><br><span class="line">    var spanSecond &#x3D; my$(&#39;second&#39;);</span><br><span class="line"></span><br><span class="line">    setInterval(countdown, 1000);</span><br><span class="line"></span><br><span class="line">    countdown();</span><br><span class="line">    &#x2F;&#x2F; 倒计时</span><br><span class="line">    function countdown() &#123;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 计算时间差</span><br><span class="line">      &#x2F;&#x2F; 当前时间</span><br><span class="line">      var startDate &#x3D; new Date();</span><br><span class="line">      &#x2F;&#x2F; 计算两个日期差</span><br><span class="line">      var interval &#x3D; getInterval(startDate, endDate);</span><br><span class="line"></span><br><span class="line">      setInnerText(spanDay, interval.day);</span><br><span class="line">      setInnerText(spanHour, interval.hour);</span><br><span class="line">      setInnerText(spanMinute, interval.minute);</span><br><span class="line">      setInnerText(spanSecond, interval.second);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="08-简单动画-html"><a href="#08-简单动画-html" class="headerlink" title="08-简单动画.html"></a>08-简单动画.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      margin: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    #box &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      background-color: red;</span><br><span class="line">      width: 100px;</span><br><span class="line">      height: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;开始&quot; id&#x3D;&quot;btn&quot;&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;box&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 1 点击按钮，让盒子能够向右移动</span><br><span class="line">    var btn &#x3D; document.getElementById(&#39;btn&#39;);</span><br><span class="line">    var box &#x3D; document.getElementById(&#39;box&#39;);</span><br><span class="line">    btn.onclick &#x3D; function () &#123;</span><br><span class="line">      &#x2F;&#x2F; &#x2F;&#x2F; style.left 获取的是标签中的style属性设置的样式属性的值</span><br><span class="line">      &#x2F;&#x2F; &#x2F;&#x2F; 如果标签中的style没有设置该样式属性，我们获取到的是空字符串</span><br><span class="line">      &#x2F;&#x2F; console.log(box.style.left);</span><br><span class="line">      &#x2F;&#x2F; &#x2F;&#x2F; 10px10px  当我们给样式属性设置非法的值，浏览器会帮我们过滤掉</span><br><span class="line">      &#x2F;&#x2F; console.log(box.style.left + 10 + &#39;px&#39;);</span><br><span class="line">      &#x2F;&#x2F; box.style.left &#x3D; box.style.left + 10 + &#39;px&#39;;</span><br><span class="line">      &#x2F;&#x2F; </span><br><span class="line">      &#x2F;&#x2F; </span><br><span class="line">      &#x2F;&#x2F; 获取盒子当前的位置  offsetLeft  offsetTop</span><br><span class="line">      &#x2F;&#x2F; box.style.left &#x3D; box.offsetLeft + 10 + &#39;px&#39;;</span><br><span class="line">      &#x2F;&#x2F; </span><br><span class="line">      &#x2F;&#x2F; box.offsetLeft 只读属性</span><br><span class="line">      &#x2F;&#x2F; </span><br><span class="line">      &#x2F;&#x2F; 2 让盒子不停的向右移动</span><br><span class="line">      &#x2F;&#x2F; 循环的速度非常非常非常快，瞬间循环100次</span><br><span class="line">      &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; 100; i++) &#123;</span><br><span class="line">      &#x2F;&#x2F;   box.style.left &#x3D; box.offsetLeft + 5 + &#39;px&#39;;</span><br><span class="line">      &#x2F;&#x2F; &#125;</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">      var timerId &#x3D; setInterval(function () &#123;</span><br><span class="line">        &#x2F;&#x2F; 让盒子停在500px的位置</span><br><span class="line">        &#x2F;&#x2F; 判断盒子当前的位置是否到达500</span><br><span class="line">        &#x2F;&#x2F; </span><br><span class="line">        &#x2F;&#x2F; 最终盒子停止的位置</span><br><span class="line">        var target &#x3D; 600;</span><br><span class="line">        &#x2F;&#x2F; 步进</span><br><span class="line">        var step &#x3D; 6;</span><br><span class="line">        if (box.offsetLeft &gt;&#x3D; target) &#123;</span><br><span class="line">          &#x2F;&#x2F; 停止定时器</span><br><span class="line">          clearInterval(timerId);</span><br><span class="line">          &#x2F;&#x2F; 设置横坐标为500</span><br><span class="line">          box.style.left &#x3D; target + &#39;px&#39;;</span><br><span class="line">          console.log(box.style.left);</span><br><span class="line">          &#x2F;&#x2F; 退出函数</span><br><span class="line">          return;</span><br><span class="line">        &#125;</span><br><span class="line">        box.style.left &#x3D; box.offsetLeft + step + &#39;px&#39;;</span><br><span class="line">        console.log(box.style.left);</span><br><span class="line">      &#125;, 30);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="common-js"><a href="#common-js" class="headerlink" title="common.js"></a>common.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">function my$(id) &#123;</span><br><span class="line">  return document.getElementById(id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理浏览器兼容性</span><br><span class="line">&#x2F;&#x2F; 获取第一个子元素</span><br><span class="line">function getFirstElementChild(element) &#123;</span><br><span class="line">    var node, nodes &#x3D; element.childNodes, i &#x3D; 0;</span><br><span class="line">    while (node &#x3D; nodes[i++]) &#123;</span><br><span class="line">        if (node.nodeType &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">            return node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理浏览器兼容性</span><br><span class="line">&#x2F;&#x2F; 获取下一个兄弟元素</span><br><span class="line"> function getNextElementSibling(element) &#123;</span><br><span class="line">    var el &#x3D; element;</span><br><span class="line">    while (el &#x3D; el.nextSibling) &#123;</span><br><span class="line">      if (el.nodeType &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">          return el;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理innerText和textContent的兼容性问题</span><br><span class="line">&#x2F;&#x2F; 设置标签之间的内容</span><br><span class="line">function setInnerText(element, content) &#123;</span><br><span class="line">  &#x2F;&#x2F; 判断当前浏览器是否支持 innerText</span><br><span class="line">  if (typeof element.innerText &#x3D;&#x3D;&#x3D; &#39;string&#39;) &#123;</span><br><span class="line">    element.innerText &#x3D; content;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    element.textContent &#x3D; content;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理注册事件的兼容性问题</span><br><span class="line">&#x2F;&#x2F; eventName, 不带on，  click  mouseover  mouseout</span><br><span class="line">function addEventListener(element, eventName, fn) &#123;</span><br><span class="line">  &#x2F;&#x2F; 判断当前浏览器是否支持addEventListener 方法</span><br><span class="line">  if (element.addEventListener) &#123;</span><br><span class="line">    element.addEventListener(eventName, fn);  &#x2F;&#x2F; 第三个参数 默认是false</span><br><span class="line">  &#125; else if (element.attachEvent) &#123;</span><br><span class="line">    element.attachEvent(&#39;on&#39; + eventName, fn);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F; 相当于 element.onclick &#x3D; fn;</span><br><span class="line">    element[&#39;on&#39; + eventName] &#x3D; fn;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 处理移除事件的兼容性处理</span><br><span class="line">function removeEventListener(element, eventName, fn) &#123;</span><br><span class="line">  if (element.removeEventListener) &#123;</span><br><span class="line">    element.removeEventListener(eventName, fn);</span><br><span class="line">  &#125; else if (element.detachEvent) &#123;</span><br><span class="line">    element.detachEvent(&#39;on&#39; + eventName, fn);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    element[&#39;on&#39; + eventName] &#x3D; null;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取页面滚动距离的浏览器兼容性问题</span><br><span class="line">&#x2F;&#x2F; 获取页面滚动出去的距离</span><br><span class="line">function getScroll() &#123;</span><br><span class="line">  var scrollLeft &#x3D; document.body.scrollLeft || document.documentElement.scrollLeft;</span><br><span class="line">  var scrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  return &#123;</span><br><span class="line">    scrollLeft: scrollLeft,</span><br><span class="line">    scrollTop: scrollTop</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取鼠标在页面的位置，处理浏览器兼容性</span><br><span class="line">function getPage(e) &#123;</span><br><span class="line">  var pageX &#x3D; e.pageX || e.clientX + getScroll().scrollLeft;</span><br><span class="line">  var pageY &#x3D; e.pageY || e.clientY + getScroll().scrollTop;</span><br><span class="line">  return &#123;</span><br><span class="line">    pageX: pageX,</span><br><span class="line">    pageY: pageY</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式</span><br><span class="line">function formatDate(date) &#123;</span><br><span class="line">  &#x2F;&#x2F; 判断参数date是否是日期对象</span><br><span class="line">  &#x2F;&#x2F; instanceof  instance 实例(对象)   of 的</span><br><span class="line">  &#x2F;&#x2F; console.log(date instanceof Date);</span><br><span class="line">  if (!(date instanceof Date)) &#123;</span><br><span class="line">    console.error(&#39;date不是日期对象&#39;)</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var year &#x3D; date.getFullYear(),</span><br><span class="line">      month &#x3D; date.getMonth() + 1,</span><br><span class="line">      day &#x3D; date.getDate(),</span><br><span class="line">      hour &#x3D; date.getHours(),</span><br><span class="line">      minute &#x3D; date.getMinutes(),</span><br><span class="line">      second &#x3D; date.getSeconds();</span><br><span class="line"></span><br><span class="line">  month &#x3D; month &lt; 10 ? &#39;0&#39; + month : month;</span><br><span class="line">  day &#x3D; day &lt; 10 ? &#39;0&#39; + day : day;</span><br><span class="line">  hour &#x3D; hour &lt; 10 ? &#39;0&#39; + hour : hour;</span><br><span class="line">  minute &#x3D; minute &lt; 10 ? &#39;0&#39; + minute : minute;</span><br><span class="line">  second &#x3D; second &lt; 10 ? &#39;0&#39; + second : second;</span><br><span class="line"></span><br><span class="line">  return year + &#39;-&#39; + month + &#39;-&#39; + day + &#39; &#39; + hour + &#39;:&#39; + minute + &#39;:&#39; + second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取两个日期的时间差</span><br><span class="line">function getInterval(start, end) &#123;</span><br><span class="line">  &#x2F;&#x2F; 两个日期对象，相差的毫秒数</span><br><span class="line">  var interval &#x3D; end - start;</span><br><span class="line">  &#x2F;&#x2F; 求 相差的天数&#x2F;小时数&#x2F;分钟数&#x2F;秒数</span><br><span class="line">  var day, hour, minute, second;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 两个日期对象，相差的秒数</span><br><span class="line">  &#x2F;&#x2F; interval &#x3D; interval &#x2F; 1000;</span><br><span class="line">  interval &#x2F;&#x3D; 1000;</span><br><span class="line"></span><br><span class="line">  day &#x3D; Math.round(interval &#x2F; 60 &#x2F; 60 &#x2F; 24);</span><br><span class="line">  hour &#x3D; Math.round(interval &#x2F; 60 &#x2F; 60 % 24);</span><br><span class="line">  minute &#x3D; Math.round(interval &#x2F; 60 % 60);</span><br><span class="line">  second &#x3D; Math.round(interval % 60);</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    day: day,</span><br><span class="line">    hour: hour,</span><br><span class="line">    minute: minute,</span><br><span class="line">    second: second</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="https://lifu521.github.io/boke/tags/js-webapi/" rel="tag"># js-webapi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js-webapi03/" rel="next" title="js-webapi03">
+                <i class="fa fa-chevron-left"></i> js-webapi03
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js-webapi05/" rel="prev" title="js-webapi05">
+                js-webapi05 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">乔然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="https://lifu521.github.io/boke/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/lf521" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-window-html"><span class="nav-number">1.</span> <span class="nav-text">01-window.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-对话框-html"><span class="nav-number">2.</span> <span class="nav-text">02-对话框.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-页面加载事件-html"><span class="nav-number">3.</span> <span class="nav-text">03-页面加载事件.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-setTimeout-html"><span class="nav-number">4.</span> <span class="nav-text">04-setTimeout.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-删除提示-html"><span class="nav-number">5.</span> <span class="nav-text">05-删除提示.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06-setInterval-html"><span class="nav-number">6.</span> <span class="nav-text">06-setInterval.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07-倒计时-html"><span class="nav-number">7.</span> <span class="nav-text">07-倒计时.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08-简单动画-html"><span class="nav-number">8.</span> <span class="nav-text">08-简单动画.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#common-js"><span class="nav-number">9.</span> <span class="nav-text">common.js</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔然</span>
+
+  
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="https://lifu521.github.io/boke/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
