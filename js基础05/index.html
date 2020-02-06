@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="https://lifu521.github.io/boke/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="https://lifu521.github.io/boke/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lifu521.github.io/boke/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lifu521.github.io/boke/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lifu521.github.io/boke/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://lifu521.github.io/boke/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###01-数据类型.html 12345678910111213141516171819202122&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;  &lt;title&gt;Document&lt;&#x2F;t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础05">
+<meta property="og:url" content="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8005/index.html">
+<meta property="og:site_name" content="乔然的博客">
+<meta property="og:description" content="###01-数据类型.html 12345678910111213141516171819202122&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;  &lt;title&gt;Document&lt;&#x2F;t">
+<meta property="article:published_time" content="2020-02-06T03:06:57.000Z">
+<meta property="article:modified_time" content="2020-02-06T03:12:14.421Z">
+<meta property="article:author" content="乔然">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'https://lifu521.github.io/boke/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lifu521.github.io/boke/js基础05/"/>
+
+
+
+
+
+  <title>js基础05 | 乔然的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="https://lifu521.github.io/boke/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">乔然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿你出走半生，归来依是少年</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="https://lifu521.github.io/boke/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://lifu521.github.io/boke/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lifu521.github.io/bokehttps://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8005/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乔然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://lifu521.github.io/boke/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js基础05</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T11:06:57+08:00">
+                2020-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="https://lifu521.github.io/boke/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###01-数据类型.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 数据类型</span><br><span class="line">    &#x2F;&#x2F; 简单数据类型，基本数据类型&#x2F;值类型</span><br><span class="line">    &#x2F;&#x2F;   Number  String  Boolean  Null  Undefined</span><br><span class="line">    &#x2F;&#x2F; 复杂数据类型，引用类型</span><br><span class="line">    &#x2F;&#x2F;   Ojbect</span><br><span class="line">    &#x2F;&#x2F;   </span><br><span class="line">    &#x2F;&#x2F;   </span><br><span class="line">    &#x2F;&#x2F; 数据在内存中存储</span><br><span class="line">    &#x2F;&#x2F;  简单数据类型 存储在内存中的栈上</span><br><span class="line">    &#x2F;&#x2F;  复杂数据类型 存储在内存中的堆上</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###02-简单类型在内存中的存储.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 简单类型在内存中如何存储</span><br><span class="line">    var n1 &#x3D; 10;</span><br><span class="line">    var n2 &#x3D; n1;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###03-复杂类型在内存中的存储.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 复杂类型在内存中如何存储</span><br><span class="line">    &#x2F;&#x2F; Object  所有的对象都是基于Object </span><br><span class="line">    </span><br><span class="line">    function Person(name, age) &#123;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">      this.age &#x3D; age;</span><br><span class="line">      this.sayHi &#x3D; function () &#123;</span><br><span class="line">        console.log(this.name + &#39;: hello&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var p1 &#x3D; new Person(&#39;zs&#39;, 18);</span><br><span class="line">    var p2 &#x3D; p1;</span><br><span class="line"></span><br><span class="line">    p1.name &#x3D; &#39;ls&#39;;</span><br><span class="line">    console.log(p2.name);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###04-简单类型作为函数的参数.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 简单类型作为函数的参数，在内存中如何存储</span><br><span class="line">    function fn(a, b) &#123;</span><br><span class="line">      &#x2F;&#x2F; 函数的参数 其实就是函数内部的局部变量</span><br><span class="line">      a &#x3D; a + 1;</span><br><span class="line">      b &#x3D; b + 1;</span><br><span class="line">      console.log(a);</span><br><span class="line">      console.log(b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var x &#x3D; 10;</span><br><span class="line">    var y &#x3D; 20;</span><br><span class="line">    fn(x, y);</span><br><span class="line">    console.log(x);</span><br><span class="line">    console.log(y);</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###05-复杂类型作为函数的参数.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 复杂类型作为函数的参数，在内存中如何存储</span><br><span class="line">    function Person(name, age) &#123;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">      this.age &#x3D; age;</span><br><span class="line">      this.sayHi &#x3D; function () &#123;</span><br><span class="line">        console.log(this.name + &#39;: hello&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var p &#x3D; new Person(&#39;zs&#39;, 18);</span><br><span class="line">    function fn(person) &#123;</span><br><span class="line">      person.name &#x3D; &#39;ls&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    fn(p);</span><br><span class="line">    console.log(p.name);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###06-复杂类型作为函数的参数 - 案例.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 复杂类型作为函数的参数，在内存中如何存储</span><br><span class="line">    function Person(name, age) &#123;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">      this.age &#x3D; age;</span><br><span class="line">      this.sayHi &#x3D; function () &#123;</span><br><span class="line">        console.log(this.name + &#39;: hello&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var p &#x3D; new Person(&#39;zs&#39;, 18);</span><br><span class="line">    function fn(person) &#123;</span><br><span class="line">      person.name &#x3D; &#39;ls&#39;;</span><br><span class="line">      person &#x3D; new Person(&#39;ww&#39;, 20);</span><br><span class="line">      console.log(person.name);</span><br><span class="line">    &#125;</span><br><span class="line">    fn(p);</span><br><span class="line">    console.log(p.name);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###07-数组排序.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 数组也是复杂类型</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 对数组排序，从小到大  -- 冒泡排序</span><br><span class="line">    function sort(array) &#123;</span><br><span class="line">      &#x2F;&#x2F; 外层循环 控制趟数</span><br><span class="line">      for (var i &#x3D; 0; i &lt; array.length - 1; i++) &#123;</span><br><span class="line">        &#x2F;&#x2F; 假设排好序了</span><br><span class="line">        var isSort &#x3D; true;</span><br><span class="line">        &#x2F;&#x2F; 内层循环 控制比较的次数</span><br><span class="line">        for (var j &#x3D; 0; j &lt; array.length - 1 - i; j++) &#123;</span><br><span class="line">          if (array[j] &gt; array[j + 1]) &#123;</span><br><span class="line">            isSort &#x3D; false;</span><br><span class="line">            &#x2F;&#x2F; 交换位置</span><br><span class="line">            var tmp &#x3D; array[j];</span><br><span class="line">            array[j] &#x3D; array[j + 1];</span><br><span class="line">            array[j + 1] &#x3D; tmp;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 判断是否排好了</span><br><span class="line">        if (isSort) &#123;</span><br><span class="line">          break;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; return array;</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    var array &#x3D; [34, 12, 88, 20, 30];</span><br><span class="line">    var r &#x3D; sort(array);</span><br><span class="line">    console.log(r);</span><br><span class="line">    console.log(array);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var array &#x3D; [34, 12, 88, 20, 30];</span><br><span class="line">    &#x2F;&#x2F; function fn(arr) &#123;</span><br><span class="line">    &#x2F;&#x2F;   arr[0] &#x3D; -1;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; fn(array);</span><br><span class="line">    &#x2F;&#x2F; console.log(array);</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###08-内置对象.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; JavaScript 组成： ECMAScript BOM  DOM</span><br><span class="line">    &#x2F;&#x2F; ECMAScript：变量 注释 数据类型 类型转换 操作符 流程控制语句（判断和循环） 数组  对象  构造函数   内置对象</span><br><span class="line">    &#x2F;&#x2F; JavaScript中的对象有三种：自定义对象、内置对象、浏览器对象</span><br><span class="line">    &#x2F;&#x2F; ECMAScript中的对象： 自定义对象、内置对象</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 内置对象：Math&#x2F;Array&#x2F;Date...</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 最常用的属性和方法</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 查文档：MDN</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###09-MDN.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; console.log(Math.random());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 生成 min 到 max 之间的随机数</span><br><span class="line">    var min &#x3D; 10;</span><br><span class="line">    var max &#x3D; 100;</span><br><span class="line">    console.log( parseInt(Math.random() * (max - min) + min));</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###10-Math.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      background-color: rgb(100, 100, 100);</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; - 求10-20之间的随机数  [10, 20]   整数</span><br><span class="line">    &#x2F;&#x2F; Math.random()  -&gt;  [0, 1)  小数</span><br><span class="line">    &#x2F;&#x2F; Math.random() * 20   -&gt;   [0, 20)  包含小数部分</span><br><span class="line">    &#x2F;&#x2F; Math.random() * (20 - 10)  -&gt; [0, 10)  包含小数部分</span><br><span class="line">    &#x2F;&#x2F; Math.random() * (20 - 10) +  10 -&gt; [10, 20)  包含小数部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Math.floor(Math.random() * (max - min + 1) + min);</span><br><span class="line">    &#x2F;&#x2F; Math.floor(Math.random() * (20 - 10 + 1) + 10);</span><br><span class="line">    &#x2F;&#x2F; Math.floor(Math.random() * 11 + 10);  -&gt; Math.floor([0, 11) + 10) -&gt;  Math.floor([10, 21)) -&gt; -&gt;  Math.floor([10, 20])  -&gt; [10, 20] 整数</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; function random(min, max) &#123;</span><br><span class="line">    &#x2F;&#x2F;   return Math.floor(Math.random() * (max - min + 1) + min);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; console.log(random(10, 20));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 随机生成颜色RGB   [0, 255] 整数</span><br><span class="line">    &#x2F;&#x2F; rgb(100, 100, 100)</span><br><span class="line">    &#x2F;&#x2F; function random(min, max) &#123;</span><br><span class="line">    &#x2F;&#x2F;   return Math.floor(Math.random() * (max - min + 1) + min);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; function randomRGB(min, max) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var color1 &#x3D; random(min, max);</span><br><span class="line">    &#x2F;&#x2F;   var color2 &#x3D; random(min, max);</span><br><span class="line">    &#x2F;&#x2F;   var color3 &#x3D; random(min, max);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;   return &#39;rgb(&#39; + color1 + &#39;, &#39; + color2 + &#39;, &#39; + color3 + &#39;)&#39;;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; console.log(randomRGB(0, 255))</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 模拟实现max()&#x2F;min()</span><br><span class="line">   &#x2F;&#x2F; console.log( Math.min(23, 1, 4, 2 ,10));</span><br><span class="line">   &#x2F;&#x2F; Math.max()</span><br><span class="line">   &#x2F;&#x2F; function max() &#123;</span><br><span class="line">   &#x2F;&#x2F;   &#x2F;&#x2F; arguments</span><br><span class="line">   &#x2F;&#x2F;   var max &#x3D; arguments[0];</span><br><span class="line">   &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">   &#x2F;&#x2F;     if (max &lt; arguments[i]) &#123;</span><br><span class="line">   &#x2F;&#x2F;       max &#x3D; arguments[i];</span><br><span class="line">   &#x2F;&#x2F;     &#125;</span><br><span class="line">   &#x2F;&#x2F;   &#125;</span><br><span class="line">   &#x2F;&#x2F;   return max;</span><br><span class="line">   &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">   &#x2F;&#x2F; function min() &#123;</span><br><span class="line">   &#x2F;&#x2F;   &#x2F;&#x2F; arguments</span><br><span class="line">   &#x2F;&#x2F;   var min &#x3D; arguments[0];</span><br><span class="line">   &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">   &#x2F;&#x2F;     if (min &gt; arguments[i]) &#123;</span><br><span class="line">   &#x2F;&#x2F;       min &#x3D; arguments[i];</span><br><span class="line">   &#x2F;&#x2F;     &#125;</span><br><span class="line">   &#x2F;&#x2F;   &#125;</span><br><span class="line">   &#x2F;&#x2F;   return min;</span><br><span class="line">   &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">   &#x2F;&#x2F; console.log(min(5, 1, 100, 23));</span><br><span class="line">   &#x2F;&#x2F; </span><br><span class="line">   var MyMath &#x3D; &#123;</span><br><span class="line">    max: function () &#123;</span><br><span class="line">     var max &#x3D; arguments[0];</span><br><span class="line">     for (var i &#x3D; 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">       if (max &lt; arguments[i]) &#123;</span><br><span class="line">         max &#x3D; arguments[i];</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return max;</span><br><span class="line">    &#125;,</span><br><span class="line">    min: function () &#123;</span><br><span class="line">      var min &#x3D; arguments[0];</span><br><span class="line">       for (var i &#x3D; 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">         if (min &gt; arguments[i]) &#123;</span><br><span class="line">           min &#x3D; arguments[i];</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       return min;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   console.log(MyMath.max(10, 1, 100, 20));</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###11-静态成员和实例成员.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    var MyMath &#x3D; &#123;</span><br><span class="line">      PI: 3.1415926,</span><br><span class="line">      max: function () &#123;</span><br><span class="line">      &#125;,</span><br><span class="line">      min: function () &#123;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 工具中使用静态成员</span><br><span class="line">    &#x2F;&#x2F; 静态成员 ： 直接使用对象来调用的</span><br><span class="line">    &#x2F;&#x2F; MyMath.PI;</span><br><span class="line">    &#x2F;&#x2F; MyMath.max()</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 当有很多个对象的时候  使用构造函数的形式来创建对象</span><br><span class="line">    &#x2F;&#x2F; 实例成员 : 构造函数中的成员就是实例成员</span><br><span class="line">    &#x2F;&#x2F; 什么是实例：对象的另一种说法</span><br><span class="line">    </span><br><span class="line">    function Person(name, age) &#123;</span><br><span class="line">      this.name &#x3D; name;</span><br><span class="line">      this.age &#x3D; age;</span><br><span class="line">      this.sayHi &#x3D; function () &#123;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 通过构造函数创建对象</span><br><span class="line">    var p &#x3D; new Person(&#39;zs&#39;, 18);</span><br><span class="line">    p.sayHi</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###12-Date.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; Math对象和Date对象的区别</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; Math 不是一个构造函数，里面提供是静态成员</span><br><span class="line">    &#x2F;&#x2F; var MyMath &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;   PI: 3.14,</span><br><span class="line">    &#x2F;&#x2F;   max: function () &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; 静态成员</span><br><span class="line">    &#x2F;&#x2F; MyMath.PI</span><br><span class="line">    &#x2F;&#x2F; MyMath.max();</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; Date 是一个构造函数，首先要通过new Date() 来创建日期实例(对象)，实例成员</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; console.log(d);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; GMT 格林威治时间   世界标准时间</span><br><span class="line">    &#x2F;&#x2F; GMT+0800 (中国标准时间)</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 距离1970-1-1相差的毫秒数</span><br><span class="line">    &#x2F;&#x2F; console.log(d.valueOf());</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 日期构造函数 Date()</span><br><span class="line">    &#x2F;&#x2F; 1 空构造函数   获取的是当前时间对象</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date();  </span><br><span class="line">    &#x2F;&#x2F; console.log(d);</span><br><span class="line">    &#x2F;&#x2F; console.log(d.valueOf());</span><br><span class="line">    &#x2F;&#x2F; 2 构造函数中传入 毫秒值</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date(1502088177998);</span><br><span class="line">    &#x2F;&#x2F; console.log(d);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 3 可以传入日期形式的字符串</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date(&#39;1988-8-8 8:8:8&#39;);</span><br><span class="line">    &#x2F;&#x2F; console.log(d);</span><br><span class="line">    &#x2F;&#x2F; console.log(d.valueOf());</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 4 可以传入数字</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date(1928, 8, 8);</span><br><span class="line">    &#x2F;&#x2F; console.log(d);</span><br><span class="line">    &#x2F;&#x2F; console.log(d.valueOf());</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 如何获取日期对象的毫秒值</span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date();</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 获取日期对象的毫秒值  不用我们调用</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(d.valueOf());</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 和valueOf的作用是一样的</span><br><span class="line">    &#x2F;&#x2F; console.log(d.getTime());</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 获取当前时间的毫秒值    静态成员</span><br><span class="line">    &#x2F;&#x2F; var num &#x3D; Date.now();   &#x2F;&#x2F; 浏览器兼容问题  HTML5</span><br><span class="line">    &#x2F;&#x2F; console.log(num);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; + 在这里是取正</span><br><span class="line">    &#x2F;&#x2F; var num &#x3D; Number( new Date());</span><br><span class="line">    var num &#x3D; + new Date();</span><br><span class="line">    console.log(num);</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###13-Date的方法.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  &#x2F;&#x2F; 2017-10-10 10:10:10</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date();</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 打印日期对象的时候。内部调用了toString()</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(d);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(d.toString());</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(d.toDateString());</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(d.toTimeString());</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; console.log(d.toLocaleDateString());</span><br><span class="line">    &#x2F;&#x2F; console.log(d.toLocaleTimeString());</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 获取日期中的指定部分</span><br><span class="line">    var  d &#x3D; new Date();</span><br><span class="line"></span><br><span class="line">    console.log(d.getFullYear());</span><br><span class="line">    &#x2F;&#x2F; !--------注意：月份是从0开始的-------------</span><br><span class="line">    console.log(d.getMonth() + 1);</span><br><span class="line">    console.log(d.getDate());</span><br><span class="line">    console.log(d.getHours());</span><br><span class="line">    console.log(d.getMinutes());</span><br><span class="line">    console.log(d.getSeconds());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###14-Date案例.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 写一个函数，格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式</span><br><span class="line">    &#x2F;&#x2F; function formatDate(date) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 判断参数date是否是日期对象</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; instanceof  instance 实例(对象)   of 的</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; console.log(date instanceof Date);</span><br><span class="line">    &#x2F;&#x2F;   if (!(date instanceof Date)) &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.error(&#39;date不是日期对象&#39;)</span><br><span class="line">    &#x2F;&#x2F;     return;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;   var year &#x3D; date.getFullYear(),</span><br><span class="line">    &#x2F;&#x2F;       month &#x3D; date.getMonth() + 1,</span><br><span class="line">    &#x2F;&#x2F;       day &#x3D; date.getDate(),</span><br><span class="line">    &#x2F;&#x2F;       hour &#x3D; date.getHours(),</span><br><span class="line">    &#x2F;&#x2F;       minute &#x3D; date.getMinutes(),</span><br><span class="line">    &#x2F;&#x2F;       second &#x3D; date.getSeconds();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; if (month &lt; 10) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F;   month &#x3D; &#39;0&#39; + month;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F;   month &#x3D; month &lt; 10 ? &#39;0&#39; + month : month;</span><br><span class="line">    &#x2F;&#x2F;   day &#x3D; day &lt; 10 ? &#39;0&#39; + day : day;</span><br><span class="line">    &#x2F;&#x2F;   hour &#x3D; hour &lt; 10 ? &#39;0&#39; + hour : hour;</span><br><span class="line">    &#x2F;&#x2F;   minute &#x3D; minute &lt; 10 ? &#39;0&#39; + minute : minute;</span><br><span class="line">    &#x2F;&#x2F;   second &#x3D; second &lt; 10 ? &#39;0&#39; + second : second;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;   return year + &#39;-&#39; + month + &#39;-&#39; + day + &#39; &#39; + hour + &#39;:&#39; + minute + &#39;:&#39; + second;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var d &#x3D; new Date();</span><br><span class="line">    &#x2F;&#x2F; var dateStr &#x3D; formatDate(d);</span><br><span class="line">    &#x2F;&#x2F; console.log(dateStr);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; d &#x3D; new Date(2017, 8, 10);</span><br><span class="line">    &#x2F;&#x2F; var dateStr &#x3D; formatDate(d);</span><br><span class="line">    &#x2F;&#x2F; console.log(dateStr);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 计算时间差，返回相差的天&#x2F;时&#x2F;分&#x2F;秒</span><br><span class="line">    &#x2F;&#x2F;1 两个日期对象如何相减</span><br><span class="line">    &#x2F;&#x2F; var d1 &#x3D; new Date();</span><br><span class="line">    &#x2F;&#x2F; var d2 &#x3D; new Date(2017, 9, 1);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; d2.valueOf() - d1.valueOf()</span><br><span class="line">    &#x2F;&#x2F; console.log(d2 - d1);  &#x2F;&#x2F; 4692437476  两个时间相差的毫秒数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;2 函数如何返回多个值</span><br><span class="line">    &#x2F;&#x2F; function fn() &#123;</span><br><span class="line">    &#x2F;&#x2F;   return &#123;</span><br><span class="line">    &#x2F;&#x2F;     year: 1,</span><br><span class="line">    &#x2F;&#x2F;     day: 2,</span><br><span class="line">    &#x2F;&#x2F;     hour: 3</span><br><span class="line">    &#x2F;&#x2F;   &#125;;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;3 如何计算相差的 天&#x2F;时&#x2F;分&#x2F;秒</span><br><span class="line">    &#x2F;&#x2F;</span><br><span class="line">    &#x2F;&#x2F;4692437476  相差的总的毫秒值</span><br><span class="line">    &#x2F;&#x2F;相差的总的秒数 &#x3D; 4692437476 &#x2F; 1000</span><br><span class="line">    &#x2F;&#x2F;相差的天数 &#x3D; 4692437476 &#x2F; 1000 &#x2F; 60 &#x2F; 60 &#x2F; 24</span><br><span class="line">    &#x2F;&#x2F;相差的小时数 &#x3D; 4692437476 &#x2F; 1000 &#x2F; 60 &#x2F; 60 % 24</span><br><span class="line">    &#x2F;&#x2F;相差的分钟数 &#x3D; 4692437476 &#x2F; 1000 &#x2F; 60 % 60 </span><br><span class="line">    &#x2F;&#x2F;相差的秒数 &#x3D; 4692437476 &#x2F; 1000 % 60</span><br><span class="line">    &#x2F;&#x2F;</span><br><span class="line">    function getInterval(start, end) &#123;</span><br><span class="line">      &#x2F;&#x2F; 两个日期对象，相差的毫秒数</span><br><span class="line">      var interval &#x3D; end - start;</span><br><span class="line">      &#x2F;&#x2F; 求 相差的天数&#x2F;小时数&#x2F;分钟数&#x2F;秒数</span><br><span class="line">      var day, hour, minute, second;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 两个日期对象，相差的秒数</span><br><span class="line">      &#x2F;&#x2F; interval &#x3D; interval &#x2F; 1000;</span><br><span class="line">      interval &#x2F;&#x3D; 1000;</span><br><span class="line"></span><br><span class="line">      day &#x3D; Math.round(interval &#x2F; 60 &#x2F; 60 &#x2F; 24);</span><br><span class="line">      hour &#x3D; Math.round(interval &#x2F; 60 &#x2F; 60 % 24);</span><br><span class="line">      minute &#x3D; Math.round(interval &#x2F; 60 % 60);</span><br><span class="line">      second &#x3D; Math.round(interval % 60);</span><br><span class="line"></span><br><span class="line">      return &#123;</span><br><span class="line">        day: day,</span><br><span class="line">        hour: hour,</span><br><span class="line">        minute: minute,</span><br><span class="line">        second: second</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var d1 &#x3D; new Date();</span><br><span class="line">    var d2 &#x3D; new Date(2017, 9, 1);</span><br><span class="line"></span><br><span class="line">    var o &#x3D; getInterval(d1, d2);</span><br><span class="line">    console.log(o);</span><br><span class="line">    </span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="https://lifu521.github.io/boke/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8004/" rel="next" title="js基础04">
+                <i class="fa fa-chevron-left"></i> js基础04
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8006/" rel="prev" title="js基础06">
+                js基础06 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">乔然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="https://lifu521.github.io/boke/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/lf521" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔然</span>
+
+  
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="https://lifu521.github.io/boke/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

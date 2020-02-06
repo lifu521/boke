@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="https://lifu521.github.io/boke/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="https://lifu521.github.io/boke/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lifu521.github.io/boke/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lifu521.github.io/boke/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lifu521.github.io/boke/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://lifu521.github.io/boke/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###01-for循环作业.html 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础03">
+<meta property="og:url" content="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8003/index.html">
+<meta property="og:site_name" content="乔然的博客">
+<meta property="og:description" content="###01-for循环作业.html 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset&amp;#">
+<meta property="article:published_time" content="2020-02-06T03:06:43.000Z">
+<meta property="article:modified_time" content="2020-02-06T03:11:20.185Z">
+<meta property="article:author" content="乔然">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'https://lifu521.github.io/boke/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lifu521.github.io/boke/js基础03/"/>
+
+
+
+
+
+  <title>js基础03 | 乔然的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="https://lifu521.github.io/boke/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">乔然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿你出走半生，归来依是少年</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="https://lifu521.github.io/boke/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://lifu521.github.io/boke/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lifu521.github.io/bokehttps://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8003/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乔然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://lifu521.github.io/boke/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js基础03</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T11:06:43+08:00">
+                2020-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="https://lifu521.github.io/boke/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###01-for循环作业.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script src&#x3D;&quot;main.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    getSum();</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 求1-100之间所有数的和</span><br><span class="line">    &#x2F;&#x2F; var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 200; i &lt;&#x3D; 300; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   sum +&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(sum);</span><br><span class="line">    &#x2F;&#x2F; 本金10000元存入银行，年利率是千分之三，每过1年，将本金和利息相加作为新的本金。计算5年后，获得的本金是多少？</span><br><span class="line">    &#x2F;&#x2F; 本金</span><br><span class="line">    &#x2F;&#x2F; var money &#x3D; 10000;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 利率</span><br><span class="line">    &#x2F;&#x2F; var rate &#x3D; 0.003;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; money &#x3D; money + money * rate;</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; 5; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   money +&#x3D; money * rate;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(money);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面。已知一对兔子每个月可以生一对小兔子，而一对兔子从出生后第3个月起每月生一对小兔子。假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？</span><br><span class="line">    &#x2F;&#x2F; （兔子的规律为数列，1，1，2，3，5，8，13，21）</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 前两个数</span><br><span class="line">    var n1 &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F; 前一个数</span><br><span class="line">    var n2 &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F; 当前数</span><br><span class="line">    var n3;</span><br><span class="line">    for (var i &#x3D; 3; i &lt;&#x3D; 9; i++) &#123;</span><br><span class="line">      n3 &#x3D; n2 + n1;</span><br><span class="line">      n1 &#x3D; n2;</span><br><span class="line">      n2 &#x3D; n3;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(n3);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###02-数组.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 数组 是一种数据类型</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; Number String</span><br><span class="line">    &#x2F;&#x2F; var n1 &#x3D; 6;</span><br><span class="line">    &#x2F;&#x2F; var name &#x3D; &#39;zs&#39;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 数组 可以存储很多项，有顺序，很多项形成一个集合，这个集合就是数组 Array</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 数组的字面量 [] </span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, &#39;ww&#39;, &#39;zl&#39;];</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 如何获取数组中的数据</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 索引&#x2F;下标  数组中的第一项的索引是从0开始</span><br><span class="line">    &#x2F;&#x2F; console.log(names[0]);</span><br><span class="line">    &#x2F;&#x2F; console.log(names[1]);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 获取数组中最后一项的值</span><br><span class="line">    &#x2F;&#x2F; console.log(names[3]);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; undefined</span><br><span class="line">    &#x2F;&#x2F; console.log(names[4]);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 数组中存储的数据类型可以不一致</span><br><span class="line">    &#x2F;&#x2F; 但是不推荐这么用</span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, 18, 19, true];</span><br><span class="line">    &#x2F;&#x2F; console.log(names);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 数组的长度: 数组中元素的个数</span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, &#39;ww&#39;, &#39;zl&#39;, &#39;&#39;, &#39;abc&#39;, &#39;123&#39;];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 获取数组的长度</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(names.length);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(names[0]);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 获取数组中的最后一个元素</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 如果数组中有29项，最后一项的索引是多少？  数组的长度 - 1</span><br><span class="line">    &#x2F;&#x2F; console.log(names.length);</span><br><span class="line">    &#x2F;&#x2F; console.log(names[names.length - 1]);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 数组 的长度 可以动态改变</span><br><span class="line">     &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, &#39;ww&#39;, &#39;zl&#39;];</span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; 如何修改数组中的元素</span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; names[0] &#x3D; &#39;xxx&#39;;</span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; console.log(names);</span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; </span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; 给数组增加一项</span><br><span class="line">     &#x2F;&#x2F; &#x2F;&#x2F; names[4] &#x3D; &#39;abc&#39;;</span><br><span class="line">     &#x2F;&#x2F; names[6] &#x3D; &#39;xxx&#39;;</span><br><span class="line">     &#x2F;&#x2F; console.log(names);</span><br><span class="line">     &#x2F;&#x2F; console.log(names.length);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     &#x2F;&#x2F; 获取数组中的每一项，并打印（遍历数组）</span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, &#39;ww&#39;, &#39;zl&#39;];</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; names.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   console.log(names[i]);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 遍历数组  先打印最后一项    长度 - 1    长度 - 2</span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;zs&#39;, &#39;ls&#39;, &#39;ww&#39;, &#39;zl&#39;];</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; names.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    &#x2F;&#x2F;   console.log(names[i]);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 补充 </span><br><span class="line">    var scores &#x3D; [];  &#x2F;&#x2F; 空数组</span><br><span class="line">    console.log(scores.length);</span><br><span class="line">    for (var i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">      scores[i] &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(scores);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 清空数组</span><br><span class="line">    scores.length &#x3D; 0;</span><br><span class="line">    console.log(scores);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var array &#x3D; [57, 90, 100];</span><br><span class="line">    </span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###03-数组案例.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 求一组数中的所有数的和和平均值</span><br><span class="line">    &#x2F;&#x2F; var numbers &#x3D; [35, 12, 35, 90, 11, 12];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 和</span><br><span class="line">    &#x2F;&#x2F; var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 平均值</span><br><span class="line">    &#x2F;&#x2F; var avg;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 遍历数组</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; for (var i &#x3D; 0; i &lt;&#x3D; numbers.length - 1; i++)</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; sum &#x3D; sum + numbers[i];</span><br><span class="line">    &#x2F;&#x2F;   sum +&#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; avg &#x3D; sum &#x2F; numbers.length;</span><br><span class="line">    &#x2F;&#x2F; console.log(&#39;这组数的和：&#39; + sum);</span><br><span class="line">    &#x2F;&#x2F; console.log(&#39;这组数的平均值：&#39; + avg);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 求一组数中的最大值和最小值，以及所在位置(最大值和最小值在这组数中的位置)</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 求一组数中的最大值</span><br><span class="line">    &#x2F;&#x2F; var numbers &#x3D; [65, 13, 101, 88, 10, 25];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 假设数组中的第一个数是最大值</span><br><span class="line">    &#x2F;&#x2F; var max &#x3D; numbers[0];</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 1; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 比赛  找最大的值</span><br><span class="line">    &#x2F;&#x2F;   if (max &lt; numbers[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;     max &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(max);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 求一组数中的最大值和最小值</span><br><span class="line">    &#x2F;&#x2F; var numbers &#x3D; [65, 13, 101, 88, 10, 25];</span><br><span class="line">    &#x2F;&#x2F; var max &#x3D; numbers[0];</span><br><span class="line">    &#x2F;&#x2F; var min &#x3D; numbers[0];</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 1; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 找大的数</span><br><span class="line">    &#x2F;&#x2F;   if (max &lt; numbers[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;     max &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 找小的数</span><br><span class="line">    &#x2F;&#x2F;   if (min &gt; numbers[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;     min &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(max, min);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 求一组数中的最大值和最小值，以及所在位置(最大值和最小值在这组数中的位置)</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; var numbers &#x3D; [120, 13, 101, 88, 10, 25];</span><br><span class="line">    &#x2F;&#x2F; var max &#x3D; numbers[0];</span><br><span class="line">    &#x2F;&#x2F; var min &#x3D; numbers[0];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 最大值的索引</span><br><span class="line">    &#x2F;&#x2F; var maxIndex &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 最小值的索引</span><br><span class="line">    &#x2F;&#x2F; var minIndex &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 1; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 找大的数</span><br><span class="line">    &#x2F;&#x2F;   if (max &lt; numbers[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;     max &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;     maxIndex &#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 找小的数</span><br><span class="line">    &#x2F;&#x2F;   if (min &gt; numbers[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;     min &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;     minIndex &#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(max, min);</span><br><span class="line">    &#x2F;&#x2F; console.log(maxIndex, minIndex);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 将字符串数组用|或其他符号分割</span><br><span class="line">    &#x2F;&#x2F; var names &#x3D; [&#39;郭德纲&#39;, &#39;郭麒麟&#39;, &#39;于谦&#39;, &#39;岳云鹏&#39;, &#39;烧饼&#39;];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 让我们把数组中的每一项 用|或其他符号分割，形成一个字符串  &#39;郭德纲|郭麒麟|于谦|岳云鹏|烧饼&#39;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 往元素后面加分隔符</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 分隔符</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; var seperator &#x3D; &#39;!&#39;;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; var str &#x3D; &#39;&#39;;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; names.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;   str &#x3D; str + names[i] + seperator;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(str);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 往第二个元素之前加分隔符</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 分隔符</span><br><span class="line">    &#x2F;&#x2F; var seperator &#x3D; &#39;|&#39;;</span><br><span class="line">    &#x2F;&#x2F; var str &#x3D; names[0];</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 1; i &lt; names.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   str +&#x3D; seperator + names[i];</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(str);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组</span><br><span class="line">    &#x2F;&#x2F; var numbers &#x3D; [5, 6, 89, 0, 11, 0, 12, 3, 0];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;1 找到数组中不为0的所有元素</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;   if (numbers[i] !&#x3D;&#x3D; 0) &#123;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;     &#x2F;&#x2F; numbers[i];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F;2 把找到的非0元素存储到一个新的数组中</span><br><span class="line">    &#x2F;&#x2F; var newArray &#x3D; []; &#x2F;&#x2F; 空数组</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 0; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   if (numbers[i] !&#x3D;&#x3D; 0) &#123;</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; 找到的非0元素，存储到新的数组中</span><br><span class="line">    &#x2F;&#x2F;     newArray[newArray.length] &#x3D; numbers[i];</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(newArray);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; var arr &#x3D; [];</span><br><span class="line">    &#x2F;&#x2F; arr[arr.length] &#x3D; 1;  &#x2F;&#x2F; arr.length &#x3D; 0   [1]</span><br><span class="line">    &#x2F;&#x2F; console.log(arr.length);</span><br><span class="line">    &#x2F;&#x2F; arr[arr.length] &#x3D; 2;  &#x2F;&#x2F; arr.length &#x3D; 1   [1, 2]</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 此时 arr.length &#x3D; 2   arr[arr.length] &#x3D; 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 翻转数组   1，2,3,4  -》 4,3,2,1</span><br><span class="line">    var numbers &#x3D; [4, 5, 7, 9];   &#x2F;&#x2F; 生成一个新的数组  数组中存储 9 7 5 4</span><br><span class="line">    var newArray &#x3D; [];</span><br><span class="line">    for (var i &#x3D; numbers.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">      newArray[newArray.length] &#x3D; numbers[i];</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newArray);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 冒泡排序，从小到大</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###04-冒泡排序.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 冒泡排序    -- 从小到大的排序</span><br><span class="line">    var numbers &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line">    var count &#x3D; 0; &#x2F;&#x2F; 记录循环的次数</span><br><span class="line">    &#x2F;&#x2F; 外层循环：控制趟数，每一趟找到一个最大值</span><br><span class="line">    for (var i &#x3D; 0; i &lt; numbers.length - 1; i++) &#123;</span><br><span class="line">      count++;</span><br><span class="line">      &#x2F;&#x2F; 内层循环：控制比较的次数，并且判断两个数的大小，把大的数往后移动，小的数往前移动</span><br><span class="line">      for (var j &#x3D; 0; j &lt; numbers.length - 1 - i; j++) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        &#x2F;&#x2F; 两两比较     从小到大排序 </span><br><span class="line">        if (numbers[j] &gt; numbers[j + 1]) &#123;</span><br><span class="line">          &#x2F;&#x2F; 交换位置</span><br><span class="line">          var tmp &#x3D; numbers[j];</span><br><span class="line">          numbers[j] &#x3D; numbers[j + 1];</span><br><span class="line">          numbers[j + 1] &#x3D; tmp;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(numbers);</span><br><span class="line">    console.log(count);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 优化刚刚的代码</span><br><span class="line">    var numbers &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line">    var count &#x3D; 0; &#x2F;&#x2F; 记录循环的次数</span><br><span class="line">    &#x2F;&#x2F; 外层循环：控制趟数，每一趟找到一个最大值</span><br><span class="line">    for (var i &#x3D; 0; i &lt; numbers.length - 1; i++) &#123;</span><br><span class="line">      &#x2F;&#x2F; 假设数据排好顺序了</span><br><span class="line">      var isSort &#x3D; true;</span><br><span class="line">      count++;</span><br><span class="line">      &#x2F;&#x2F; 内层循环：控制比较的次数，并且判断两个数的大小，把大的数往后移动，小的数往前移动</span><br><span class="line">      for (var j &#x3D; 0; j &lt; numbers.length - 1 - i; j++) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        &#x2F;&#x2F; 两两比较     从小到大排序 </span><br><span class="line">        if (numbers[j] &gt; numbers[j + 1]) &#123;</span><br><span class="line">          &#x2F;&#x2F; 没有排好 </span><br><span class="line">          isSort &#x3D; false;</span><br><span class="line">          &#x2F;&#x2F; 交换位置</span><br><span class="line">          var tmp &#x3D; numbers[j];</span><br><span class="line">          numbers[j] &#x3D; numbers[j + 1];</span><br><span class="line">          numbers[j + 1] &#x3D; tmp;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; 某一趟结束，判断一下排序是否结束</span><br><span class="line">      &#x2F;&#x2F; 如何判断排序是否排好，根据是否发生了数据交换，如果发生了数据交换说明没有排好</span><br><span class="line">      if (isSort) &#123;</span><br><span class="line">        &#x2F;&#x2F; 如果排好顺序</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(numbers);</span><br><span class="line">    console.log(count);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###05-函数.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script src&#x3D;&quot;main.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 为什么要有函数</span><br><span class="line">    &#x2F;&#x2F; 求1-100之间所有数的和</span><br><span class="line">    &#x2F;&#x2F; var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F; for (var i &#x3D; 200; i &lt;&#x3D; 300; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;   sum +&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; console.log(sum);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 函数 可以封装一段特定功能的代码，然后通过函数名可以重复调用此段代码</span><br><span class="line">    &#x2F;&#x2F; 定义了一个函数 -- 函数不会自己运行</span><br><span class="line">    &#x2F;&#x2F; function getSum() &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 函数体  -- 一段代码</span><br><span class="line">    &#x2F;&#x2F;   var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     sum +&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   console.log(sum);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 调用函数</span><br><span class="line">    &#x2F;&#x2F; getSum();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; getSum();</span><br><span class="line">    &#x2F;&#x2F; getSum();</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###06-函数语法.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 函数定义的两种方式</span><br><span class="line">    &#x2F;&#x2F; 1 函数声明</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; function sayHi() &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 函数体</span><br><span class="line">    &#x2F;&#x2F;   console.log(&#39;Hello World&#39;);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 调用函数</span><br><span class="line">    &#x2F;&#x2F; sayHi();</span><br><span class="line">    &#x2F;&#x2F; sayHi();</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 2 函数表达式</span><br><span class="line">    &#x2F;&#x2F; var sayHi &#x3D; function () &#123;</span><br><span class="line">    &#x2F;&#x2F;   console.log(&#39;Hello World&#39;);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 调用函数</span><br><span class="line">    &#x2F;&#x2F; sayHi();</span><br><span class="line">    &#x2F;&#x2F; sayHi();</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###07-函数的参数.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 为什么要有参数</span><br><span class="line">    &#x2F;&#x2F; 在函数声明的时候，参数m 是没有值的。 当调用函数的时候，需要给函数的参数传值</span><br><span class="line">    &#x2F;&#x2F; function getSum(m) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; m; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     sum +&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   console.log(sum);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 调用函数</span><br><span class="line">    &#x2F;&#x2F; getSum(100);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; getSum(1000);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; getSum(10000);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 写一个函数，可以求n-m之间所有数的和</span><br><span class="line">    &#x2F;&#x2F; 在函数声明的时候。参数 叫做形参  形式参数（占位） 没有值</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    function getSum(n, m) &#123;</span><br><span class="line">      var sum &#x3D; 0;</span><br><span class="line">      for (var i &#x3D; n; i &lt;&#x3D; m; i++) &#123;</span><br><span class="line">        sum +&#x3D; i;</span><br><span class="line">      &#125;</span><br><span class="line">      console.log(sum);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 函数调用</span><br><span class="line">    &#x2F;&#x2F; 在函数调用的时候，我们需要给形参传递值</span><br><span class="line">    &#x2F;&#x2F; 实参（实际参数）  把具体的值传递给形参</span><br><span class="line">    getSum(10, 100);</span><br><span class="line">    getSum(50, 500);</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; function getSum1() &#123;</span><br><span class="line">    &#x2F;&#x2F;   var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; 1000; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     sum +&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   console.log(sum);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###08-案例.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 写一个函数，计算两个数的和</span><br><span class="line">    &#x2F;&#x2F; function getSum(a, b) &#123;</span><br><span class="line">    &#x2F;&#x2F;   a &#x3D; 100;</span><br><span class="line">    &#x2F;&#x2F;   b &#x3D; 1000;</span><br><span class="line">    &#x2F;&#x2F;   console.log(a + b);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; getSum(10, 100);</span><br><span class="line">    &#x2F;&#x2F; var x &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F; var y &#x3D; 2;</span><br><span class="line">    &#x2F;&#x2F; getSum(x, y);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 如果我们在函数内部修改形参的值，是否会影响函数外部实参的值？</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 当我们在函数内部修改形参的值，不会影响外部的实参的值</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 是因为调用函数的时候，是吧实参的值复制了一份赋给形参的</span><br><span class="line">    &#x2F;&#x2F; console.log(x, y);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 圆的面积 &#x3D; pi * r * r;</span><br><span class="line">    &#x2F;&#x2F; function getArea(r) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var pi &#x3D; 3.1415926;</span><br><span class="line">    &#x2F;&#x2F;   console.log(pi * r * r);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; getArea(7);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 求2个数中的最大值</span><br><span class="line">    &#x2F;&#x2F; function getMax(a, b) &#123;</span><br><span class="line">    &#x2F;&#x2F;   if (a &gt; b) &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(a);</span><br><span class="line">    &#x2F;&#x2F;   &#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(b);</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; var x &#x3D; 100;</span><br><span class="line">    &#x2F;&#x2F; var y &#x3D; 1000;</span><br><span class="line">    &#x2F;&#x2F; getMax(x, y);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 求3个数中的最大值</span><br><span class="line">    &#x2F;&#x2F; function getMax(a, b, c) &#123;</span><br><span class="line">    &#x2F;&#x2F;   if (a &gt; b &amp;&amp; a &gt; c) &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(a);</span><br><span class="line">    &#x2F;&#x2F;   &#125; else if (b &gt; a &amp;&amp; b &gt; c) &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(b);</span><br><span class="line">    &#x2F;&#x2F;   &#125; else if (c &gt; a &amp;&amp; c &gt; b) &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(c);</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125; </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; getMax(11111, 100, 1000);</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 求n个数的最大值？</span><br><span class="line">    &#x2F;&#x2F; function getMax(arr) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 参数arr  是数组</span><br><span class="line">    &#x2F;&#x2F;   var max &#x3D; arr[0];</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; 判断max和数组中之后的每一个元素进行比较</span><br><span class="line">    &#x2F;&#x2F;     if (max &lt; arr[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;       max &#x3D; arr[i];</span><br><span class="line">    &#x2F;&#x2F;     &#125;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   console.log(max);</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var array &#x3D; [12, 2, 45, 1, 10];</span><br><span class="line">    &#x2F;&#x2F; getMax(array);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; - 判断一个数是否是素数(又叫质数，只能被1和自身整数的数)</span><br><span class="line">    function jdugePrimeNumber(number) &#123;</span><br><span class="line">      &#x2F;&#x2F; 假设number是质数</span><br><span class="line">      var isPrime &#x3D; true;</span><br><span class="line">      for (var i &#x3D; 2; i &lt; number; i++) &#123;</span><br><span class="line">        &#x2F;&#x2F; 判断是否有能被number整数的数</span><br><span class="line">        if (number % i &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          &#x2F;&#x2F; 如果此处执行了。说明不是质数</span><br><span class="line">          isPrime &#x3D; false;</span><br><span class="line">          break;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (isPrime) &#123;</span><br><span class="line">        console.log(&#39;质数&#39;);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        console.log(&#39;不是质数&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    jdugePrimeNumber(13);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###09-函数的返回值.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; - 求一组数中的最大值</span><br><span class="line">    &#x2F;&#x2F; function getMax(arr) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var max &#x3D; arr[0];</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     if (max &lt; arr[i]) &#123;</span><br><span class="line">    &#x2F;&#x2F;       max &#x3D; arr[i];</span><br><span class="line">    &#x2F;&#x2F;     &#125;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 函数的返回值</span><br><span class="line">    &#x2F;&#x2F;   return max;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 可以通过一个变量接受函数的返回值</span><br><span class="line">    &#x2F;&#x2F; var array &#x3D; [12, 1, 99, 10, 20];</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; var max &#x3D; getMax(array);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; console.log(max);</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; var num &#x3D; 5;</span><br><span class="line">    &#x2F;&#x2F; var result &#x3D; getMax(array) + num;</span><br><span class="line">    &#x2F;&#x2F; console.log(result);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; - 求一组数中的最小值</span><br><span class="line">    &#x2F;&#x2F; - 求阶乘   5 * 4 * 3 * 2 * 1</span><br><span class="line">    &#x2F;&#x2F; function getJieCheng(n) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var result &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; result *&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;     result &#x3D; result * i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   return result;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; var num &#x3D; getJieCheng(5);</span><br><span class="line">    &#x2F;&#x2F; console.log(num);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; - 求1!+2!+3!+....+n!    n!</span><br><span class="line">    &#x2F;&#x2F; function getJieCheng(n) &#123;</span><br><span class="line">    &#x2F;&#x2F;   var result &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; result *&#x3D; i;</span><br><span class="line">    &#x2F;&#x2F;     result &#x3D; result * i;</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   return result;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; function getSum(n) &#123;</span><br><span class="line">    &#x2F;&#x2F;   &#x2F;&#x2F; 求1-n之间每一个数的阶乘的累加</span><br><span class="line">    &#x2F;&#x2F;   var sum &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;   for (var i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;</span><br><span class="line">    &#x2F;&#x2F;     &#x2F;&#x2F; 累加的是每一个数的阶乘</span><br><span class="line">    &#x2F;&#x2F;     sum +&#x3D; getJieCheng(i);</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F;   return sum;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 第一次循环  i &#x3D; 1    sum &#x3D; 0 + 1 </span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 第二次循环  i &#x3D; 2    sum &#x3D; 1! + 2!</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; &#x2F;&#x2F; 1! + 2! + 3! + 4! + 5!</span><br><span class="line">    &#x2F;&#x2F; console.log(getSum(5));</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; 如果一个函数不需要返回值，可以不写return</span><br><span class="line">    &#x2F;&#x2F; 当函数中不写return的时候，返回的是undefined</span><br><span class="line">    &#x2F;&#x2F; return 后面可以什么都不跟，如果return后面什么都不跟 会返回undefined</span><br><span class="line">    function test(a, b) &#123;</span><br><span class="line">      return;  &#x2F;&#x2F; 函数执行的过程中只要遇到return 后面的代码就不会再执行</span><br><span class="line">      console.log(a, b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var r &#x3D; test(5, 6);</span><br><span class="line">    console.log(r);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###main.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 函数 可以封装一段特定功能的代码，然后通过函数名可以重复调用此段代码</span><br><span class="line">&#x2F;&#x2F; 定义了一个函数 -- 函数不会自己运行</span><br><span class="line">function getSum() &#123;</span><br><span class="line">  &#x2F;&#x2F; 函数体  -- 一段代码</span><br><span class="line">  var sum &#x3D; 0;</span><br><span class="line">  for (var i &#x3D; 200; i &lt;&#x3D; 300; i++) &#123;</span><br><span class="line">    sum +&#x3D; i;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 调用函数</span><br><span class="line">getSum();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="https://lifu521.github.io/boke/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8002/" rel="next" title="js基础02">
+                <i class="fa fa-chevron-left"></i> js基础02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="https://lifu521.github.io/boke/js%E5%9F%BA%E7%A1%8004/" rel="prev" title="js基础04">
+                js基础04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">乔然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="https://lifu521.github.io/boke/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/lf521" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔然</span>
+
+  
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://lifu521.github.io/boke/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="https://lifu521.github.io/boke/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://lifu521.github.io/boke/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
